@@ -6,6 +6,8 @@ public static void main (String[] args{ {
   
   // Buffer Reader
   
+  // title screen, maybe leaderboards, averages, previous scores you got?
+  
   // add a method which can read our inputs and compare it to the text file
   
   // add methods which display: percentage correct + incorrect, time taken, average wpm, average correct wpm, # of characters written?
@@ -20,4 +22,5 @@ public static void main (String[] args{ {
   // add inspirational message about their typing: you will improve, youre doing well, really good, etc.
   
   // try and figure out how to make the game look good with formatting or images
+  
 }
