@@ -9,7 +9,7 @@ public class Panels {
 	/* Make pretty buttons */
 	/*public static JButton sideButton(String text) {
 		JButton button = new JButton(text);
-		
+
 		return button;
 	}
 	*/
@@ -54,10 +54,22 @@ public class Panels {
 	/* Typing test typing area panel (center) */
 	public static JPanel createTypingPanel() {
 		JPanel typingPanel = new JPanel();
+		JTextArea typingArea = new JTextArea(6, 40);
+
+		typingArea.setFont(Global.typingAreaFont);
+		typingArea.setLineWrap(true);
+		typingArea.setWrapStyleWord(true);
+		int gap = 40;
+		typingArea.setMargin(new Insets(gap, gap, gap, gap));
+		typingArea.setAlignmentX(Global.X/2);
 
 		typingPanel.setBounds(Global.sidePanelWidth, 0, Global.centerPanelWidth, Global.Y);
 		typingPanel.setBackground(new Color(67, 67, 67)); // RGB
 		typingPanel.setBorder(Global.centerBorder);
+
+		typingPanel.add(typingArea);
+
+		TypingArea.main(typingArea);
 
 		return typingPanel;
 	}
