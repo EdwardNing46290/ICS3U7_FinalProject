@@ -5,6 +5,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Panels {
+	// Button style
+	public static JButton sideButton(String text) {
+		JButton button = new JButton();
+		
+		return button;
+	}
 
 	/* Typing test difficulty panel (left side) */
 	public static JPanel createLevelPanel() {
