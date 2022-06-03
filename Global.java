@@ -1,5 +1,6 @@
 /**
  * Contains variables that are used across several classes.
+ * @version Wed June 2, 8PM
  */
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -8,7 +9,7 @@ import java.awt.*;
 
 public class Global {
 
-	// Fullscreen
+	// Screen size
 	static Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 	static int X = screen.width - 200; // Subtract a bit to make sure
 	static int Y = screen.height - 100; // that the entire window is visible.
@@ -43,5 +44,9 @@ public class Global {
 	// Final border for center panel
 	static Border centerBorder = new CompoundBorder(
 			centerLineBorder, centerPaddingBorder);
+
+	// Other components
+	static JTextArea typingArea;
+	static JPanel typingPanel;
 
 }
