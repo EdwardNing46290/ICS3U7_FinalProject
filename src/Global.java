@@ -1,6 +1,6 @@
 /**
  * Contains variables that are used across several classes.
- * @version Wed June 2, 8PM
+ * @version Wed June 3, 9PM
  */
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,14 +15,17 @@ public class Global {
 	static int Y = screen.height - 100; // that the entire window is visible.
 
 	// Fonts
-	static Font typingAreaFont = new Font(Font.MONOSPACED, Font.PLAIN, 30);
+	static int typingAreaFontScale = 40;
+	static Font typingAreaFont = new Font(Font.MONOSPACED, Font.PLAIN, Y / typingAreaFontScale);
 
 	// Padding values determine the size of the gap between buttons and the edges of the panel.
-	static int centerPaddingValue = 80;
-	static int sidePaddingValue = 80;
+	static int centerPaddingValueScale = 30;
+	static int centerPaddingValue = Y / centerPaddingValueScale;
+	static int sidePaddingValueScale = 15;
+	static int sidePaddingValue = Y / sidePaddingValueScale;
 
 	// Panel sizes
-	static int centerPanelWidth = X/2;
+	static int centerPanelWidth = X / 2;
 	static int sidePanelWidth = (X - centerPanelWidth) / 2;
 
 	// Borders for side panels
@@ -46,7 +49,12 @@ public class Global {
 			centerLineBorder, centerPaddingBorder);
 
 	// Other components
+	static int textDisplayCharacterLimit = centerPanelWidth / 22;
+	static JPanel levelPanel;
+	static JPanel timePanel;
+	static JPanel centerPanel;
+	static JLayeredPane textDisplay;
+	static JTextArea generatedText;
 	static JTextArea typingArea;
-	static JPanel typingPanel;
 
 }

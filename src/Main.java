@@ -1,26 +1,25 @@
 /**
  * Main program.
- * @version Wed June 2, 8PM
+ * @version Wed June 3, 9PM
  */
 import javax.swing.*;
 
 public class Main {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("WPM test");
+		frame.setSize(Global.X, Global.Y);
 
 		// Add panels to frame
-		JPanel typingPanel = Panels.createTypingPanel();
-		Global.typingPanel = typingPanel;
 		JPanel levelPanel = Panels.createLevelPanel();
+		Global.levelPanel = levelPanel;
 		JPanel timePanel = Panels.createTimePanel();
+		Global.timePanel = timePanel;
+		JPanel centerPanel = Panels.createCenterPanel();
+		Global.centerPanel = centerPanel;
 		frame.add(levelPanel);
 		frame.add(timePanel);
-		frame.add(typingPanel); // Must add last, GUI will not render properly otherwise. Reason unknown.
+		frame.add(centerPanel); // Must add last, GUI will not render properly otherwise. Reason unknown.
 
-		// Frame formatting
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(Global.X, Global.Y);
 		frame.setVisible(true);
-
 	}
 }

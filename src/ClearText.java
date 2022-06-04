@@ -1,16 +1,16 @@
 /**
+ * WORK IN PROGRESS
  * Clears the typing area text when necessary.
- * @version Wed June 2, 8PM
+ * @version Wed June 3, 9PM
  */
 
 public class ClearText {
 	static Thread clearTextThread = new Thread() {
 		public void run() {
-			int characterLimit = 40;
 			while (true) {
 				try {
 					// Condition should be true if there is a second row of text
-					if (Global.typingArea.getText().length() == characterLimit) {
+					if (Global.typingArea.getText().length() == Global.textDisplayCharacterLimit) {
 						Global.typingArea.setText(" ");
 					}
 				} catch (Exception e) {
