@@ -1,6 +1,7 @@
 /**
- * Main program.
  * @version Wed June 3, 9PM
+ *
+ * Main program. Creates a frame and adds panels.
  */
 import javax.swing.*;
 
