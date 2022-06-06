@@ -1,6 +1,4 @@
 /**
- * @version Wed June 3, 9PM
- *
  * Variables that are used often in other classes.
  * Includes variables for:
  * - Screen and panel size
@@ -25,37 +23,53 @@ public class Global {
 	static int sidePanelWidth = (X - centerPanelWidth) / 2;
 
 	// Font
-	static int typingAreaFontScale = 40;
+	static int typingAreaFontScale = 28;
 	static Font typingAreaFont = new Font(Font.MONOSPACED, Font.PLAIN, Y / typingAreaFontScale);
+	static int timeDisplayFontScale = 5;
+	static Font timeDisplayFont = new Font(Font.MONOSPACED, Font.PLAIN, Y / timeDisplayFontScale);
 
 	// Padding values determine the size of the gap between components and panel edges.
-	static int textDisplayPaddingScale = 30;
-	static int textDisplayPaddingValue = Y / textDisplayPaddingScale;
 	static int sidePaddingValueScale = 15;
 	static int sidePaddingValue = Y / sidePaddingValueScale;
 
-	// Borders for side panels
+	static int centerPaddingValueScale = 15;
+	static int centerPaddingValue = Y / centerPaddingValueScale;
+
+	static int generatedTextPaddingScale = 30;
+	static int generatedTextPaddingValue = Y / generatedTextPaddingScale;
+
+	// Borders
 	static Border sidePaddingBorder = BorderFactory.createEmptyBorder
-			(sidePaddingValue, sidePaddingValue, sidePaddingValue, sidePaddingValue); // Top left bottom right
-	static Border sideLineBorder = BorderFactory.createMatteBorder
-			(100, 20, 100, 20, Color.BLACK); // Top left bottom right
-	// Final border for side panels
-	static Border sideBorder = new CompoundBorder(
-			sideLineBorder, sidePaddingBorder);
+			(sidePaddingValue, sidePaddingValue, sidePaddingValue, sidePaddingValue); // top left bottom right
+	static Border levelPanelLineBorder = BorderFactory.createMatteBorder(Y/10, Y/50, Y/10, 0, Color.BLACK);
+	static Border timePanelLineBorder = BorderFactory.createMatteBorder(Y/10, 0, Y/10, Y/50, Color.BLACK);
+	static Border levelPanelBorder = new CompoundBorder(levelPanelLineBorder, sidePaddingBorder);
+	static Border timePanelBorder = new CompoundBorder(timePanelLineBorder, sidePaddingBorder);
 
-	// Borders for center panel and its components
-	static Border centerLineBorder = BorderFactory.createMatteBorder
-			(20, 20, 20, 20, Color.BLACK);
-	static Border textDisplayPaddingBorder = BorderFactory.createEmptyBorder
-			(textDisplayPaddingValue, textDisplayPaddingValue, textDisplayPaddingValue, textDisplayPaddingValue);
+	static Border centerPaddingBorder = BorderFactory.createEmptyBorder
+			(centerPaddingValue, centerPaddingValue, centerPaddingValue, centerPaddingValue);
+	static Border centerLineBorder = BorderFactory.createMatteBorder(0, 0, 20, 0, Color.BLACK);
+	static Border centerBorder = new CompoundBorder(centerLineBorder, centerPaddingBorder);
 
-	// Other components
-	static int textDisplayCharacterLimit = centerPanelWidth / 22;
+	static Border generatedTextPaddingBorder = BorderFactory.createEmptyBorder
+			(generatedTextPaddingValue, generatedTextPaddingValue, generatedTextPaddingValue, generatedTextPaddingValue);
+	static Border generatedTextLineBorder = BorderFactory.createMatteBorder(20, 20, 20, 20, new Color(45, 31, 19, 255));
+	static Border generatedTextBorder = new CompoundBorder(generatedTextLineBorder, generatedTextPaddingBorder);
+
+	// Components
+	static JFrame frame;
 	static JPanel levelPanel;
 	static JPanel timePanel;
 	static JPanel centerPanel;
 	static JLayeredPane textDisplay;
 	static JTextArea generatedText;
 	static JTextArea typingArea;
+	static JTextField timeDisplay;
 
+	// Other
+	static int textDisplayCharacterLimit = centerPanelWidth / typingAreaFontScale;
+	static int testDuration = 30;
+	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
+	static int secondsRemaining = 30;
+	static boolean testActive = false;
 }
