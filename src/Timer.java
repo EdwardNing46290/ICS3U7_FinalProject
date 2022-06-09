@@ -22,6 +22,7 @@ public class Timer {
         Global.secondsRemaining = seconds;
         Global.testDuration = seconds;
         Global.timeDisplay.setText(Integer.toString(seconds));
-
+        float startTime = Global.currentTime;
+        float endTime = Global.currentTime + seconds;
     }
 }
