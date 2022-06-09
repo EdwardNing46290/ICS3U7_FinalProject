@@ -30,8 +30,8 @@ public class Global {
 	static int generatedTextPaddingScale = 30;
 	static int generatedTextPaddingValue = Y / generatedTextPaddingScale;
 	
-	static int displayBorderScale = 20;
-	static int displayBorderValue = Y / displayBorderScale;
+	static int displayPaddingScale = 20;
+	static int displayPaddingValue = Y / displayPaddingScale;
 
 	// Borders
 	static Border sidePaddingBorder = BorderFactory.createEmptyBorder
@@ -52,7 +52,7 @@ public class Global {
 	static Border generatedTextBorder = new CompoundBorder(generatedTextLineBorder, generatedTextPaddingBorder);
 	
 	static Border displayBorder = BorderFactory.createEmptyBorder
-			(displayBorderValue, displayBorderValue, displayBorderValue, displayBorderValue);
+			(displayPaddingValue, displayPaddingValue, displayPaddingValue, displayPaddingValue);
 	static Border textDisplayPaddingBorder = BorderFactory.createMatteBorder(20, 20, 20, 20, Color.RED);
 	
 	static Border sideBorder = new CompoundBorder(sidePaddingBorder, sidePaddingBorder);
@@ -73,4 +73,6 @@ public class Global {
 	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
 	static int secondsRemaining = 30;
 	static boolean testActive = false;
+	
+	static Border menuBorder = new CompoundBorder()
 }
