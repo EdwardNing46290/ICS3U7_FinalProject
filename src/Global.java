@@ -73,6 +73,7 @@ public class Global {
 	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
 	static int secondsRemaining = 30;
 	static float currentTime = System.currentTimeMillis();
+	static String recordDay = Calendar.getInstance();
 	static boolean testActive = false;
 	
 	static Border menuBorder = new CompoundBorder()
