@@ -1,11 +1,3 @@
-/**
- * Variables that are used often in other classes.
- * Includes variables for:
- * - Screen and panel size
- * - Fonts
- * - Padding and borders
- * - Other components, such as panels
- */
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
@@ -37,6 +29,9 @@ public class Global {
 
 	static int generatedTextPaddingScale = 30;
 	static int generatedTextPaddingValue = Y / generatedTextPaddingScale;
+	
+	static int displayBorderScale = 20;
+	static int displayBorderValue = Y / displayBorderScale;
 
 	// Borders
 	static Border sidePaddingBorder = BorderFactory.createEmptyBorder
@@ -55,6 +50,12 @@ public class Global {
 			(generatedTextPaddingValue, generatedTextPaddingValue, generatedTextPaddingValue, generatedTextPaddingValue);
 	static Border generatedTextLineBorder = BorderFactory.createMatteBorder(20, 20, 20, 20, new Color(45, 31, 19, 255));
 	static Border generatedTextBorder = new CompoundBorder(generatedTextLineBorder, generatedTextPaddingBorder);
+	
+	static Border displayBorder = BorderFactory.createEmptyBorder
+			(displayBorderValue, displayBorderValue, displayBorderValue, displayBorderValue);
+	static Border textDisplayPaddingBorder = BorderFactory.createMatteBorder(20, 20, 20, 20, Color.RED);
+	
+	static Border sideBorder = new CompoundBorder(sidePaddingBorder, sidePaddingBorder);
 
 	// Components
 	static JFrame frame;
