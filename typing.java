@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/* import java.util.Scanner;
 
 // do we need a class here?
 public static void main (String[] args{ {
@@ -24,3 +24,6 @@ public static void main (String[] args{ {
   // try and figure out how to make the game look good with formatting or images
   
 }
+
+
+ */

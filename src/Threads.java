@@ -9,7 +9,7 @@ public class Threads {
 	static Thread repaintFrameThread = new Thread() {
 		public void run() {
 
-			int framesPerSecond = 30;
+			int framesPerSecond = 150; // Lower than 150 will make the GUI appear glitchy
 
 			while (true) {
 				Global.frame.repaint();

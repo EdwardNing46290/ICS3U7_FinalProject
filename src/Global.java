@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
+import java.util.Calendar;
 
 public class Global {
 
@@ -73,8 +74,8 @@ public class Global {
 	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
 	static int secondsRemaining = 30;
 	static float currentTime = System.currentTimeMillis();
-	static String recordDay = Calendar.getInstance();
+	static String recordDay = String.valueOf(Calendar.getInstance());
 	static boolean testActive = false;
 	
-	static Border menuBorder = new CompoundBorder()
+	static Border menuBorder = new CompoundBorder();
 }

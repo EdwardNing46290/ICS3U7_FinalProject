@@ -24,6 +24,7 @@ public class Main {
 		frame.add(levelPanel);
 		frame.add(timePanel);
 		frame.add(centerPanel); // Must add last, GUI will not render properly otherwise. Reason unknown.
+		frame.setLocationRelativeTo(null);
 
 		frame.setVisible(true);
 
