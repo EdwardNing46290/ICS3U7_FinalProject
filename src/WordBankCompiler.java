@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class wordBankCompiler {
+public class WordBankCompiler {
 
 	// Compile the word bank for each typing test difficulty
 	public static void compileBank() throws IOException {

@@ -2,7 +2,7 @@
  * Generates random text depending on test difficulty.
  */
 
-public class textGenerator {
+public class TextGenerator {
 
 	// Sets the test level, generates random text, and displays random text on a JTextArea
 	public static void generateTextCache(int testLevel) {

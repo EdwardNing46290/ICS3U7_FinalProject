@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 		// Compile word bank for text generation
-		wordBankCompiler.compileBank();
+		WordBankCompiler.compileBank();
 
 		// Build GUI
 		JFrame frame = new JFrame("WPM test");

@@ -29,9 +29,9 @@ public class Panels {
 		JButton levelEasy = new JButton("Easy");
 		JButton levelMed = new JButton("Medium");
 		JButton levelHard = new JButton("Hard");
-		ActionListener levelEasyAL = e -> textGenerator.generateTextCache(1);
-		ActionListener levelMedAL = e -> textGenerator.generateTextCache(2);
-		ActionListener levelHardAL = e -> textGenerator.generateTextCache(3);
+		ActionListener levelEasyAL = e -> TextGenerator.generateTextCache(1);
+		ActionListener levelMedAL = e -> TextGenerator.generateTextCache(2);
+		ActionListener levelHardAL = e -> TextGenerator.generateTextCache(3);
 		levelEasy.addActionListener(levelEasyAL);
 		levelMed.addActionListener(levelMedAL);
 		levelHard.addActionListener(levelHardAL);
@@ -127,7 +127,7 @@ public class Panels {
 		// Temporary placeholder text
 		JTextArea generatedText = new JTextArea(6, Global.textDisplayCharacterLimit);
 		Global.generatedText = generatedText;
-		textGenerator.generateTextCache(2);
+		TextGenerator.generateTextCache(2);
 
 		// Format
 		generatedText.setLineWrap(true);
