@@ -101,7 +101,7 @@ develop
 did
 didn’t
 different
-doflamingo
+do
 does
 dog
 don’t
@@ -110,7 +110,7 @@ down
 draw
 dream
 driven
-dryland
+dry
 during
 each
 early
@@ -383,7 +383,7 @@ solid
 some
 something
 somewhere
-somnambulations
+so
 song
 soon
 sound
@@ -435,7 +435,7 @@ through
 time
 together
 told
-tonsillectomies
+to
 took
 tooth
 topography

@@ -9,11 +9,13 @@ import java.util.ArrayList;
 public class wordBankCompiler {
 
 	// Compile the word bank for each typing test difficulty
-	public static void main(String[] args) throws IOException {
+	public static void compileBank() throws IOException {
 		FileReader fr = new FileReader("WordBanks/wordBank300.txt");
 		Global.easyBank = compileBank(fr);
+
 		fr = new FileReader("WordBanks/wordBank500.txt");
 		Global.mediumBank = compileBank(fr);
+
 		fr = new FileReader("WordBanks/wordBank1000.txt");
 		Global.hardBank = compileBank(fr);
 	}
@@ -28,6 +30,6 @@ public class wordBankCompiler {
 			wordBank.add(word);
 		}
 
-		return wordBank;
+		return (ArrayList<String>) wordBank.clone();
 	}
 }

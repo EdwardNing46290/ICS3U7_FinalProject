@@ -1,6 +1,8 @@
 /**
  * Threads can run simultaneously while other code is executed.
  */
+import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Threads {
@@ -86,4 +88,18 @@ public class Threads {
 	public static void startCheckTestStarted() {
 		checkTestStartedThread.start();
 	}
+
+	static Thread startCheckGenerateText = new Thread() {
+		public void run() {
+			while (true) {
+
+				// .getText() can return null for an unknown reason and cause errors
+				try {
+					if (Global.typingArea.getText().length() >= Global.textDisplayCharacterLimit) {
+						Global.typingArea.setText("");
+					}
+				} catch (Exception e) {}
+			}
+		}
+	};
 }

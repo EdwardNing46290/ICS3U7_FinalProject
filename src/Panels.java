@@ -29,9 +29,9 @@ public class Panels {
 		JButton levelEasy = new JButton("Easy");
 		JButton levelMed = new JButton("Medium");
 		JButton levelHard = new JButton("Hard");
-		ActionListener levelEasyAL = e -> Global.testLevel = 1;
-		ActionListener levelMedAL = e -> Global.testLevel = 2;
-		ActionListener levelHardAL = e -> Global.testLevel = 3;
+		ActionListener levelEasyAL = e -> textGenerator.generateTextCache(1);
+		ActionListener levelMedAL = e -> textGenerator.generateTextCache(2);
+		ActionListener levelHardAL = e -> textGenerator.generateTextCache(3);
 		levelEasy.addActionListener(levelEasyAL);
 		levelMed.addActionListener(levelMedAL);
 		levelHard.addActionListener(levelHardAL);
@@ -125,12 +125,9 @@ public class Panels {
 	public static JTextArea createGeneratedTextArea() {
 
 		// Temporary placeholder text
-		JTextArea generatedText = new JTextArea
-				("open fact interest take word group only some than public give year " +
-						"think consider help each hold the good may some world can the " +
-						"between how each person into few no say many could after",
-						6, Global.textDisplayCharacterLimit);
+		JTextArea generatedText = new JTextArea(6, Global.textDisplayCharacterLimit);
 		Global.generatedText = generatedText;
+		textGenerator.generateTextCache(2);
 
 		// Format
 		generatedText.setLineWrap(true);

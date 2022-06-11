@@ -70,9 +70,11 @@ public class Global {
 	static JTextField timeDisplay;
 
 	// Other
-	static ArrayList<String> easyBank;
-	static ArrayList<String> mediumBank;
-	static ArrayList<String> hardBank;
+	static ArrayList<String> easyBank = new ArrayList<>();
+	static ArrayList<String> mediumBank = new ArrayList<>();
+	static ArrayList<String> hardBank = new ArrayList<>();
+	static ArrayList<String> currentBank = new ArrayList<>();
+	static ArrayList<String> textCache = new ArrayList<>();
 	static int textDisplayCharacterLimit = centerPanelWidth / typingAreaFontScale;
 	static int testDuration = 30;
 	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
