@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Global {
@@ -69,6 +70,9 @@ public class Global {
 	static JTextField timeDisplay;
 
 	// Other
+	static ArrayList<String> easyBank;
+	static ArrayList<String> mediumBank;
+	static ArrayList<String> hardBank;
 	static int textDisplayCharacterLimit = centerPanelWidth / typingAreaFontScale;
 	static int testDuration = 30;
 	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
