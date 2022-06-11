@@ -1,9 +1,7 @@
 /**
- * @version Wed June 6, 6PM
- *
  * Main program.
  *
- * To-do: Implement difficulty buttons, random text generation, test end results, store user results
+ * To-do: test end results, store user results
  */
 import javax.swing.*;
 import java.io.IOException;

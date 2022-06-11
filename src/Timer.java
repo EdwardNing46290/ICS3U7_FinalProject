@@ -1,11 +1,12 @@
 /**
- * Shows user time remaining before the typing test ends.
+ * setTime sets the number of seconds on the timer
  */
 
 public class Timer {
+
     public static void setTime(int seconds) {
 
-        // Stop timer countdown, if it started
+        // Stop timer countdown if it's counting down
         if (Global.testActive && !Threads.checkTestStartedThread.isAlive()) {
             Threads.checkTestStartedThread.interrupt();
             Global.testActive = false;
@@ -15,10 +16,10 @@ public class Timer {
         // Start checking if user started the test
         Global.testActive = false;
 
-        // Reset user text
+        // Reset user-typed text
         Global.typingArea.setText("");
 
-        // Set timer and timer variables
+        // Set number on timer and update timer variables
         Global.secondsRemaining = seconds;
         Global.testDuration = seconds;
         Global.timeDisplay.setText(Integer.toString(seconds));

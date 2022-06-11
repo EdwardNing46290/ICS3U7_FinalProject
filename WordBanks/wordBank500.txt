@@ -193,7 +193,7 @@ hour
 house
 hundred
 idea
-iffy
+if
 important
 ink
 inch
