@@ -6,9 +6,13 @@
  * To-do: Implement difficulty buttons, random text generation, test end results, store user results
  */
 import javax.swing.*;
+import java.io.IOException;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		
+		// Compile word bank for text generation
+		wordBankCompiler.compileBank();
 
 		// Build GUI
 		JFrame frame = new JFrame("WPM test");
