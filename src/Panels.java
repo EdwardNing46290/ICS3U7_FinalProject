@@ -1,5 +1,5 @@
 /**
- * Class of methods for constructing panels:
+ * Class of methods that construct the following panels
  * - Level or difficulty panel (left)
  * - Time panel (right)
  * - Center panel
@@ -42,7 +42,7 @@ public class Panels {
 		return levelPanel;
 	}
 
-	/* Typing test duration (right side of screen) */
+	/* For choosing typing test duration (right side of screen) */
 	public static JPanel createTimePanel() {
 		JPanel timePanel = new JPanel();
 		Global.timePanel = timePanel;
@@ -72,7 +72,7 @@ public class Panels {
 		return timePanel;
 	}
 
-	/* Center panel */
+	/* Center panel with text display and timer */
 	public static JPanel createCenterPanel() {
 		JPanel centerPanel = new JPanel();
 		Global.centerPanel = centerPanel;
@@ -95,7 +95,7 @@ public class Panels {
 		return centerPanel;
 	}
 
-	/* Where user reads and types words. */
+	/* Area where user reads and types words */
 	public static JLayeredPane createTextDisplay() {
 		JLayeredPane textDisplay = new JLayeredPane();
 		Global.textDisplay = textDisplay;
@@ -121,7 +121,7 @@ public class Panels {
 		return textDisplay;
 	}
 
-	/* Generated text for user to type. */
+	/* Show generated text for user to type */
 	public static JTextArea createGeneratedTextArea() {
 
 		// Temporary placeholder text
@@ -168,7 +168,7 @@ public class Panels {
 		return typingArea;
 	}
 
-	/* Remaining seconds before typing test ends */
+	/* Remaining seconds until typing test end */
 	public static JTextField createTimeDisplay(int seconds) {
 		Global.secondsRemaining = seconds;
 		JTextField timeDisplay = new JTextField(Integer.toString(Global.secondsRemaining));

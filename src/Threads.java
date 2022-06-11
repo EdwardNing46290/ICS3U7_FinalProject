@@ -26,14 +26,10 @@ public class Threads {
 		repaintFrameThread.start();
 	}
 
-	// This thread checks if the user started typing.
-	// While the user is typing, this thread will make the timer countdown.
+	// Checks if the user started typing. While the user is typing, this thread will make the timer countdown.
 	static Thread checkTestStartedThread = new Thread() {
 
 		public void run() {
-
-			// The text the user has typed so far
-			String userText;
 
 			while (true) {
 
@@ -41,10 +37,10 @@ public class Threads {
 				while (!Global.testActive) {
 
 					try {
-						userText = Global.typingArea.getText();
+						Global.userTextAsString = Global.typingArea.getText();
 
 						// True after user starts typing
-						if (userText.length() != 0) {
+						if (Global.userTextAsString.length() != 0) {
 							Global.testActive = true;
 							Global.timeDisplay.setText(Integer.toString(Global.testDuration));
 							Global.secondsRemaining = Global.testDuration;

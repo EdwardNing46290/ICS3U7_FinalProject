@@ -69,19 +69,25 @@ public class Global {
 	static JTextArea typingArea;
 	static JTextField timeDisplay;
 
-	// Other
+	// Text generation
+	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
 	static ArrayList<String> easyBank = new ArrayList<>();
 	static ArrayList<String> mediumBank = new ArrayList<>();
 	static ArrayList<String> hardBank = new ArrayList<>();
 	static ArrayList<String> currentBank = new ArrayList<>();
 	static ArrayList<String> textCache = new ArrayList<>();
 	static int textDisplayCharacterLimit = centerPanelWidth / typingAreaFontScale;
+
+	// Timer
 	static int testDuration = 30;
-	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
 	static int secondsRemaining = 30;
 	static float currentTime = System.currentTimeMillis();
 	static String recordDay = String.valueOf(Calendar.getInstance());
 	static boolean testActive = false;
 	
 	static Border menuBorder = new CompoundBorder();
+
+	// Test results
+	static String userTextAsString;
+	static ArrayList<String> userText=  new ArrayList<>();
 }

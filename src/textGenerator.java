@@ -33,10 +33,10 @@ public class textGenerator {
 			wordCount++;
 		}
 
+		// Reset timer and display newly generated text
 		if (Global.testActive) {
 			Timer.setTime(Global.testDuration);
 		}
-
 		Global.generatedText.setText(getTextCacheAsString());
 	}
 
