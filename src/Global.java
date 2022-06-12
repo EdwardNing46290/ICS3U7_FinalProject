@@ -89,5 +89,5 @@ public class Global {
 
 	// Test results
 	static String userTextAsString;
-	static ArrayList<String> userText=  new ArrayList<>();
+	static ArrayList<String> userText = new ArrayList<>();
 }
