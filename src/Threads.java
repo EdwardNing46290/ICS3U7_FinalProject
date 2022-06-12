@@ -16,7 +16,11 @@ public class Threads {
 				try {
 					TimeUnit.MILLISECONDS.sleep(1000/framesPerSecond);
 				} catch (InterruptedException e) {}
+
+				// Select text box, so user doesn't have to click it to start typing
+				Global.typingArea.requestFocus();
 			}
+
 		}
 	};
 
