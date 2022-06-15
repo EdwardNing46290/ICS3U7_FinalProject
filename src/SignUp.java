@@ -36,6 +36,6 @@ public class SignUp implements ActionListener {
 */
 
 		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		// pretty much the same as login code rn
 	}
 }
