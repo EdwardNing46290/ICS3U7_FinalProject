@@ -68,6 +68,13 @@ public class Global {
 	static JTextArea generatedText;
 	static JTextArea typingArea;
 	static JTextField timeDisplay;
+	
+	// Main menu setup
+	static JFrame settingsFrame = new JFrame("Settings");
+	static JFrame achievementFrame = new JFrame("Achievements");
+	static JFrame informationFrame = new JFrame("Information");
+	static JFrame signupFrame = new JFrame("Sign up");
+	static JFrame loginFrame = new JFrame("Login");
 
 	// Text generation
 	static int testLevel = 2; // 1 = easy, 2 = medium, 3 = hard
