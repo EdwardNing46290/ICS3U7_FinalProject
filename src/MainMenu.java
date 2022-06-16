@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
 
-public class TitlePage implements ActionListener {
+public class MainMenu implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	JButton typingTest = new JButton("Typing Test");
@@ -29,7 +29,7 @@ public class TitlePage implements ActionListener {
 	Color grey = new Color(1,1,1);
 	Color orange = new Color(255,215,0);
 	
-	public TitlePage () throws MalformedURLException{
+	public MainMenu () throws MalformedURLException{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setVisible(true);
@@ -91,7 +91,7 @@ public class TitlePage implements ActionListener {
 		
 		title.setText("Main Menu");
 		title.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		title.setBounds(220,-190,800,1000);
+		title.setBounds(220,-100,800,1000);
 		title.setForeground(yellow);
 	
 		frame.add(typingTest);
@@ -108,10 +108,15 @@ public class TitlePage implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {	
 		if(e.getSource() == typingTest) {
-			Menu menuPage = new Menu();
+			try {
+				MainMenu menuPage = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			frame.dispose();
 		}
 		
 	}
-	// inspired by Main Menu Demo by Xiao Ling Xie
+	
 }
