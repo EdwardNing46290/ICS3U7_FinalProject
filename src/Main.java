@@ -9,8 +9,9 @@ import java.io.IOException;
 public class Main {
 	public static void main(String[] args) throws IOException {
 		
+		MainMenu menuPage = new MainMenu();
 		// Compile word bank for text generation
-		WordBankCompiler.compileBank();
+		// WordBankCompiler.compileBank();
 		
 		// Build GUI
 		JFrame frame = new JFrame("WPM test");
