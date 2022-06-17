@@ -1,16 +1,20 @@
 /**
- * setTime sets the number of seconds on the timer
+ * Set time on timer.
  */
 
 public class Timer {
 
     public static void setTime(int seconds) {
+        try {
+            Global.textDisplay.remove(Global.resultsPanel);
+            Global.typingArea.setEditable(true);
+        } catch (Exception e) {}
 
         // Stop timer countdown if it's counting down
         if (Global.testActive && !Threads.checkTestStartedThread.isAlive()) {
             Threads.checkTestStartedThread.interrupt();
             Global.testActive = false;
-            Threads.startCheckTestStarted();
+            Threads.startCheckTestStartedThread();
         }
 
         // Start checking if user started the test

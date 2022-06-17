@@ -1,16 +1,19 @@
+/**
+ * Variables to be accessed by multiple classes.
+ */
+import java.awt.*;
 import javax.swing.*;
+import java.util.Calendar;
+import java.util.ArrayList;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Global {
 
 	// Screen size
-	static Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-	static int X = screen.width - 200; // Subtract to make sure that the entire window is visible.
-	static int Y = screen.height - 100;
+	final static Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+	final static int X = screen.width - 200; // Subtract to make sure that the entire window is visible.
+	final static int Y = screen.height - 100;
 
 	// Panel size
 	static int centerPanelWidth = X / 2;
@@ -63,13 +66,14 @@ public class Global {
 	static JFrame frame;
 	static JPanel levelPanel;
 	static JPanel timePanel;
-	static JPanel centerPanel;
-	static JLayeredPane textDisplay;
-	static JTextArea generatedText;
-	static JTextArea typingArea;
-	static JTextField timeDisplay;
-	
-	// Main menu setup
+	static JPanel centerPanel; // Contains textDisplay, timeDisplay, and resultPanel
+		static JLayeredPane textDisplay; // Contains generatedText and typingArea
+			static JTextArea generatedText;
+			static JTextArea typingArea;
+		static JTextField timeDisplay;
+		static JPanel resultsPanel;
+
+	// TypingTest menu setup
 	static JFrame settingsFrame = new JFrame("Settings");
 	static JFrame achievementFrame = new JFrame("Achievements");
 	static JFrame informationFrame = new JFrame("Information");
@@ -97,4 +101,6 @@ public class Global {
 	// Test results
 	static String userTextAsString;
 	static ArrayList<String> userText = new ArrayList<>();
+	static ArrayList<Integer> wpmUpdates = new ArrayList<>();
+	static int correctWords;
 }

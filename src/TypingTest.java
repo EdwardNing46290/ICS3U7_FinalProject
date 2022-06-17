@@ -1,12 +1,10 @@
 /**
- * Main program.
- *
- * To-do: test end results, store user results
+ * Typing test GUI
  */
 import javax.swing.*;
 import java.io.IOException;
 
-public class Main {
+public class TypingTest {
 	public static void main() throws IOException {
 
 		// Compile word bank for text generation
@@ -25,7 +23,7 @@ public class Main {
 		Global.centerPanel = centerPanel;
 		frame.add(levelPanel);
 		frame.add(timePanel);
-		frame.add(centerPanel); // Must add last, GUI will not render properly otherwise. Reason unknown.
+		frame.add(centerPanel); // Must add last, GUI will not build properly otherwise. Reason unknown.
 		frame.setLocationRelativeTo(null);
 
 		frame.setVisible(true);

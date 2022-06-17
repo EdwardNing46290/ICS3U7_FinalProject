@@ -6,6 +6,11 @@ public class TextGenerator {
 
 	// Sets the test level, generates random text, and displays random text on a JTextArea
 	public static void generateTextCache(int testLevel) {
+		try {
+			Global.textDisplay.remove(Global.resultsPanel);
+			Global.typingArea.setEditable(true);
+		} catch (Exception e) {}
+
 		Global.testLevel = testLevel;
 
 		// Decide which word bank to generate text from
@@ -38,6 +43,7 @@ public class TextGenerator {
 			Timer.setTime(Global.testDuration);
 		}
 		Global.generatedText.setText(getTextCacheAsString());
+		Global.userText.clear();
 	}
 
 	public static String getTextCacheAsString() {

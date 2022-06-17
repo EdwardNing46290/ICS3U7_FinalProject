@@ -9,7 +9,7 @@ public class Threads {
 	static Thread repaintFrameThread = new Thread() {
 		public void run() {
 
-			int framesPerSecond = 150; // Lower than 150 will make the GUI appear glitchy
+			int framesPerSecond = 160; // Lower than 150 will make the GUI appear glitchy
 
 			while (true) {
 				Global.frame.repaint();
@@ -24,7 +24,7 @@ public class Threads {
 		}
 	};
 
-	public static void repaintFrame() {
+	public static void startRepaintFrameThread() {
 		repaintFrameThread.start();
 	}
 
@@ -44,8 +44,6 @@ public class Threads {
 						// True after user starts typing
 						if (Global.userTextAsString.length() != 0) {
 							Global.testActive = true;
-							Global.timeDisplay.setText(Integer.toString(Global.testDuration));
-							Global.secondsRemaining = Global.testDuration;
 						}
 					}
 
@@ -55,17 +53,25 @@ public class Threads {
 
 				// Timer countdown.
 				while (Global.testActive) {
+
+					// Update timer text
 					Global.timeDisplay.setText(Integer.toString(Global.secondsRemaining));
 
 					// Test ended.
 					if (Global.secondsRemaining == 0) {
 
 						// Stop user from typing.
-						Global.typingArea.setVisible(false);
+						Global.typingArea.setEditable(false);
 						Global.typingArea.setText("");
-						Global.typingArea.setVisible(true);
 
+						// Display results
 						Global.testActive = false;
+						testResult.endTest();
+
+						// Reuse timer number to display score
+						Global.timeDisplay.setText("WPM: " + (int) (60.0 / (Global.testDuration) * Global.correctWords));
+
+						break;
 					}
 
 					// Decrement timer by 1 second
@@ -78,12 +84,15 @@ public class Threads {
 
 					// Try catch is mandatory for .sleep()
 					catch (InterruptedException e) {}
+
+					// Store current WPM for results line graph
+					testResult.storeWPM();
 				}
 			}
 		}
 	};
 
-	public static void startCheckTestStarted() {
+	public static void startCheckTestStartedThread() {
 		checkTestStartedThread.start();
 	}
 
