@@ -1,18 +1,15 @@
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Color;
 
 public class MainMenu implements ActionListener {
 	
@@ -34,7 +31,7 @@ public class MainMenu implements ActionListener {
 		ActionListener startGame = e -> {
 			try {
 				frame.dispose();
-				Main.main();
+				TypingTest.main();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -44,7 +41,7 @@ public class MainMenu implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setVisible(true);
-		frame.setTitle("Main Menu"); 
+		frame.setTitle("TypingTest Menu");
 		frame.setResizable(false);
 		
 		ImageIcon background = new ImageIcon("background.jpg");
@@ -100,7 +97,7 @@ public class MainMenu implements ActionListener {
 		typingTest.setBackground(yellow);
 		
 		
-		title.setText("Main Menu");
+		title.setText("TypingTest Menu");
 		title.setFont(new Font("Times New Roman", Font.BOLD, 80));
 		title.setBounds(220,-100,800,1000);
 		title.setForeground(yellow);
@@ -115,9 +112,9 @@ public class MainMenu implements ActionListener {
 		frame.add(light_title);
 			
 	}
-	
+
 	@Override
-	public void actionPerformed(ActionEvent e) {	
+	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == typingTest) {
 			try {
 				MainMenu menuPage = new MainMenu();
@@ -127,7 +124,7 @@ public class MainMenu implements ActionListener {
 			}
 			frame.dispose();
 		}
-		
+
 	}
 
 

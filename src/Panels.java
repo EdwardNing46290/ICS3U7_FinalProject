@@ -1,13 +1,13 @@
 /**
  * Class of methods that construct the following panels
- * - Level or difficulty panel (left)
- * - Time panel (right)
+ * - Level or difficulty panel - left side
+ * - Time panel - right side
  * - Center panel
- * 	- Text display for user input and shows randomly generated text
- * 	- Time display for showing time remaining before end of test
+ * 	 - Text display - user input, randomly generated text
+ * 	 - Time display - test time remaining
  */
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class Panels {
@@ -89,7 +89,7 @@ public class Panels {
 		JLayeredPane textDisplay = createTextDisplay();
 		centerPanel.add(textDisplay);
 
-		JTextField timeDisplay = createTimeDisplay(30);
+		JTextField timeDisplay = createTimeDisplay();
 		centerPanel.add(timeDisplay);
 
 		return centerPanel;
@@ -169,8 +169,7 @@ public class Panels {
 	}
 
 	/* Remaining seconds until typing test end */
-	public static JTextField createTimeDisplay(int seconds) {
-		Global.secondsRemaining = seconds;
+	public static JTextField createTimeDisplay() {
 		JTextField timeDisplay = new JTextField(Integer.toString(Global.secondsRemaining));
 		Global.timeDisplay = timeDisplay;
 
