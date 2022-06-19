@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 public class MainMenu implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	// main menu icons
 	JButton typingTest = new JButton("Typing Test");
 	JButton settings = new JButton("Settings"); // add image of a gear
 	JButton scores = new JButton("Scores"); // add image of trophy
@@ -23,6 +24,8 @@ public class MainMenu implements ActionListener {
 	
 	JLabel title = new JLabel();
 	JLabel light_title = new JLabel();
+	
+	// background/font colours
 	Color yellow = new Color(255,255,0);
 	Color grey = new Color(1,1,1);
 	Color orange = new Color(255,215,0);
@@ -44,6 +47,7 @@ public class MainMenu implements ActionListener {
 		frame.setTitle("TypingTest Menu");
 		frame.setResizable(false);
 		
+		// images
 		ImageIcon background = new ImageIcon("background.jpg");
 		frame.setIconImage(background.getImage());
 		
