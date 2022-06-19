@@ -66,7 +66,7 @@ public class Threads {
 
 						// Display results
 						Global.testActive = false;
-						testResult.endTest();
+						TestResult.endTest();
 
 						// Reuse timer number to display score
 						Global.timeDisplay.setText("WPM: " + (int) (60.0 / (Global.testDuration) * Global.correctWords));
@@ -86,7 +86,7 @@ public class Threads {
 					catch (InterruptedException e) {}
 
 					// Store current WPM for results line graph
-					testResult.storeWPM();
+					TestResult.storeWPM();
 				}
 			}
 		}

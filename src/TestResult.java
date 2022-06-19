@@ -11,7 +11,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class testResult {
+public class TestResult {
 
     /** Store current WPM for line graph data */
     public static void storeWPM() {
