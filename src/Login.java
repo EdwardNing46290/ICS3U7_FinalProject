@@ -18,6 +18,8 @@ public class Login implements ActionListener {
 		JFrame loginFrame = new JFrame();
 		usernameText = new JUsernameField("");
 		passwordText = new JPasswordField("");
+		JTextField username = new JTextField("Enter your Username: ");
+		JTextField password = new JTextField("Enter your Password: ");
 		login = new JButton("Login");
 
 		loginFrame.setSize(200,200);
