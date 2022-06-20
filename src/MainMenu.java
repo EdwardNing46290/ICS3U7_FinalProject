@@ -128,10 +128,54 @@ public class MainMenu implements ActionListener {
 			}
 			frame.dispose();
 		}
-
 	}
-
-
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == info) {
+			try {
+				MainMenu info = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == info) {
+			try {
+				MainMenu login = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == info) {
+			try {
+				MainMenu signUp = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == info) {
+			try {
+				MainMenu settings = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
 	public static void main(String[] args) throws MalformedURLException {
 		MainMenu menuPage = new MainMenu();
 	}
