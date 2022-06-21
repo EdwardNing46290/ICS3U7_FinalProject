@@ -141,8 +141,21 @@ public class MainMenu implements ActionListener {
 			frame.dispose();
 		}
 	}
+
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == info) {
+		if(e.getSource() == scores) {
+			try {
+				MainMenu scores = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == login) {
 			try {
 				MainMenu login = new MainMenu();
 			} catch (MalformedURLException e1) {
@@ -154,7 +167,7 @@ public class MainMenu implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == info) {
+		if(e.getSource() == signUp) {
 			try {
 				MainMenu signUp = new MainMenu();
 			} catch (MalformedURLException e1) {
@@ -166,7 +179,7 @@ public class MainMenu implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == info) {
+		if(e.getSource() == settings) {
 			try {
 				MainMenu settings = new MainMenu();
 			} catch (MalformedURLException e1) {
