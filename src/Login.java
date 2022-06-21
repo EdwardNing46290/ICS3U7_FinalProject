@@ -139,7 +139,9 @@ class LoginFormDemo
         catch(Exception e)  
         {     
             //handle exception   
-            JOptionPane.showMessageDialog(null, e.getMessage());  
+            JOptionPane.showMessageDialog(null, e.getMessage()); 
+	    https://www.javatpoint.com/login-form-java 
+	    https://www.geeksforgeeks.org/java-swing-simple-user-registration-form/
         }  
     }  
 } 
