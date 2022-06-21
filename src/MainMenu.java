@@ -24,9 +24,31 @@ public class MainMenu implements ActionListener {
 	JButton login = new JButton("Login");
 	JButton signUp = new JButton("Sign Up");
 	
+	
 	try {
-		Image settings = ImageIO.read(getClass().getResource("resources/gear.jpg"));
+		Image keyboard = ImageIO.read(getClass().getResource("resources/keyboard.jpg"));
+		typingTest.setIcon(new ImageIcon(keyboard));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	
+	try {
+		Image gear = ImageIO.read(getClass().getResource("resources/gear.jpg"));
 		settings.setIcon(new ImageIcon(gear));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	
+	try {
+		Image trophy = ImageIO.read(getClass().getResource("resources/trophy.jpg"));
+		scores.setIcon(new ImageIcon(trophy));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	
+	try {
+		Image i = ImageIO.read(getClass().getResource("resources/i.jpg"));
+		info.setIcon(new ImageIcon(gear));
 	} catch (Exception ex) {
 		System.out.println(ex);
 	}
