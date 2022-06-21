@@ -15,12 +15,22 @@ public class MainMenu implements ActionListener {
 	
 	JFrame frame = new JFrame();
 	// main menu icons
+	JButton button = new JButton();
+	
 	JButton typingTest = new JButton("Typing Test");
 	JButton settings = new JButton("Settings"); // add image of a gear
 	JButton scores = new JButton("Scores"); // add image of trophy
 	JButton info = new JButton("Info"); // add an image of an i
 	JButton login = new JButton("Login");
 	JButton signUp = new JButton("Sign Up");
+	
+	try {
+		Image settings = ImageIO.read(getClass().getResource("resources/gear.jpg"));
+		settings.setIcon(new ImageIcon(gear));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	// Borrowed from Rogach
 	
 	JLabel title = new JLabel();
 	JLabel light_title = new JLabel();
