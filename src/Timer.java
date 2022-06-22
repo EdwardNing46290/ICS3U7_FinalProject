@@ -21,6 +21,7 @@ public class Timer {
             Global.typingArea.setEditable(true);
             Global.testEnded = false;
             TextGenerator.setDifficulty(Global.testLevel, true, true);
+            Global.timeDisplay.setFont(Global.TimeDisplayFont.TIMER_FONT);
         }
 
         // If the test hasn't finished, stop timer countdown.

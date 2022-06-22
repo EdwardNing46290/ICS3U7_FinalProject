@@ -51,6 +51,7 @@ public class TestResult {
         System.out.println(wpm + " " + scores.size());
 
         // Display score and average
+        Global.timeDisplay.setFont(Global.TimeDisplayFont.SCORE_FONT);
         Global.timeDisplay.setText("WPM: " + wpm + " AVG: " + average);
 
     }

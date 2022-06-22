@@ -128,7 +128,7 @@ public class Threads {
 
 				// A pause to save CPU.
 				try {
-					TimeUnit.MILLISECONDS.sleep(20);
+					TimeUnit.MILLISECONDS.sleep(10);
 				} catch (InterruptedException e) {}
 
 				Global.frame.repaint();

@@ -205,7 +205,7 @@ public class Panels {
 		timeDisplay.setBounds(Global.SIDE_PANEL_WIDTH, Global.Screen.HEIGHT / 2, Global.CENTER_PANEL_WIDTH, Global.Screen.HEIGHT / 2);
 
 		// Optional formatting
-		timeDisplay.setFont(Global.TimeDisplayFont.FONT);
+		timeDisplay.setFont(Global.TimeDisplayFont.TIMER_FONT);
 		timeDisplay.setBorder(Global.Borders.CENTER_PANEL_LINE_BORDER);
 		timeDisplay.setForeground(new Color(188, 188, 188));
 		timeDisplay.setBackground(new Color(67, 67, 67, 0));
@@ -243,7 +243,7 @@ public class Panels {
 		return timeDisplay;
 	}
 
-	// Change levelPanel button colours
+	// Change button colours
 	public static void formatButton(JButton pressedButton, boolean isLevelButton) {
 		ArrayList<JButton> buttons;
 

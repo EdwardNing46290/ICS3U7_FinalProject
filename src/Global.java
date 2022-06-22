@@ -28,9 +28,12 @@ public class Global {
 
 	}
 	enum TimeDisplayFont {;
-		final static int SCALE = 9;
-		final static int SIZE = Screen.HEIGHT / SCALE;
-		final static Font FONT = new Font(Font.MONOSPACED, Font.PLAIN, SIZE);
+		final static int TIMER_SCALE = 5;
+		final static int SCORE_SCALE = 12;
+		final static int TIMER_SIZE = Screen.HEIGHT / TIMER_SCALE;
+		final static int SCORE_SIZE = Screen.HEIGHT / SCORE_SCALE;
+		final static Font TIMER_FONT = new Font(Font.MONOSPACED, Font.PLAIN, TIMER_SIZE);
+		final static Font SCORE_FONT = new Font(Font.MONOSPACED, Font.PLAIN, SCORE_SIZE);
 	}
 
 	// Padding values determine the size of the gap between components and panel edges.
