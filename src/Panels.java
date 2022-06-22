@@ -1,6 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Class of methods that construct the following panels <br>
@@ -31,13 +32,26 @@ public class Panels {
 		JButton levelMedium = new JButton("Medium");
 		JButton levelHard = new JButton("Hard");
 
-		ActionListener levelEasyAL = al -> TextGenerator.setDifficulty(1, true, true);
-		ActionListener levelMediumAL = al -> TextGenerator.setDifficulty(2, true, true);
-		ActionListener levelHardAL = al -> TextGenerator.setDifficulty(3, true, true);
+		ActionListener levelEasyAL = al -> {
+			TextGenerator.setDifficulty(1, true, true);
+			formatButton(levelEasy, true);
+		};
+		ActionListener levelMediumAL = al -> {
+			TextGenerator.setDifficulty(2, true, true);
+			formatButton(levelMedium, true);
+		};
+		ActionListener levelHardAL = al -> {
+			TextGenerator.setDifficulty(3, true, true);
+			formatButton(levelHard, true);
+		};
 
 		levelEasy.addActionListener(levelEasyAL);
 		levelMedium.addActionListener(levelMediumAL);
 		levelHard.addActionListener(levelHardAL);
+		Global.levelButtons.add(levelEasy);
+		Global.levelButtons.add(levelMedium);
+		Global.levelButtons.add(levelHard);
+		formatButton(levelMedium, true);
 		levelPanel.add(levelEasy);
 		levelPanel.add(levelMedium);
 		levelPanel.add(levelHard);
@@ -64,13 +78,26 @@ public class Panels {
 		JButton thirtySecondButton = new JButton("30 sec");
 		JButton sixtySecondButton = new JButton("60 sec");
 
-		ActionListener tenSecondButtonAL = e -> Timer.setTime(10);
-		ActionListener thirtySecondButtonAL = e -> Timer.setTime(30);
-		ActionListener sixtySecondButtonAL = e -> Timer.setTime(60);
+		ActionListener tenSecondButtonAL = e -> {
+			Timer.setTime(10);
+			formatButton(tenSecondButton, false);
+		};
+		ActionListener thirtySecondButtonAL = e -> {
+			Timer.setTime(30);
+			formatButton(thirtySecondButton, false);
+		};
+		ActionListener sixtySecondButtonAL = e -> {
+			Timer.setTime(60);
+			formatButton(sixtySecondButton, false);
+		};
 
 		tenSecondButton.addActionListener(tenSecondButtonAL);
 		thirtySecondButton.addActionListener(thirtySecondButtonAL);
 		sixtySecondButton.addActionListener(sixtySecondButtonAL);
+		Global.timeButtons.add(tenSecondButton);
+		Global.timeButtons.add(thirtySecondButton);
+		Global.timeButtons.add(sixtySecondButton);
+		formatButton(thirtySecondButton, false);
 		timePanel.add(tenSecondButton);
 		timePanel.add(thirtySecondButton);
 		timePanel.add(sixtySecondButton);
@@ -185,6 +212,10 @@ public class Panels {
 
 		// Components
 		JButton restart = new JButton("Restart");
+		restart.setBackground(new Color(83, 67, 55, 255));
+		restart.setForeground(new Color(198, 161, 135));
+		restart.setFont(Global.TypingAreaFont.FONT);
+		restart.setBorder(Global.Borders.BUTTON_BORDER);
 
 		ActionListener restartAL = e -> {
 
@@ -210,5 +241,29 @@ public class Panels {
 		timeDisplay.add(restart);
 
 		return timeDisplay;
+	}
+
+	// Change levelPanel button colours
+	public static void formatButton(JButton pressedButton, boolean isLevelButton) {
+		ArrayList<JButton> buttons;
+
+		if (isLevelButton) {
+			buttons = Global.levelButtons;
+		} else {
+			buttons = Global.timeButtons;
+		}
+
+		for (JButton button : buttons) {
+			if (button.equals(pressedButton)) {
+				button.setBackground(new Color(69, 35, 10, 255));
+				button.setForeground(new Color(200, 138, 73));
+
+			} else {
+				button.setBackground(new Color(83, 67, 55, 255));
+				button.setForeground(new Color(198, 161, 135));
+			}
+			button.setFont(Global.TypingAreaFont.FONT);
+			button.setBorder(Global.Borders.BUTTON_BORDER);
+		}
 	}
 }

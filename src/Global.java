@@ -68,6 +68,9 @@ public class Global {
 		final static Border GENERATED_TEXT_BOX_LINE_BORDER = BorderFactory.createMatteBorder
 				(20, 20, 20, 20, new Color(45, 31, 19, 255));
 
+		final static Border BUTTON_BORDER = BorderFactory.createMatteBorder
+				(10, 10, 10, 10, new Color(45, 31, 19, 255));
+
 		// Final borders to be used (a combination of 2 borders)
 		final static Border LEVEL_PANEL_BORDER = new CompoundBorder
 				(Borders.LEVEL_PANEL_LINE_BORDER, Borders.SIDE_PANEL_PADDING_BORDER);
@@ -92,6 +95,8 @@ public class Global {
 			static JTextArea typingArea;
 		static JTextField timeDisplay;
 		static JPanel resultsPanel;
+	static ArrayList<JButton> levelButtons = new ArrayList<>();
+	static ArrayList<JButton> timeButtons = new ArrayList<>();
 
 	// TypingTest menu setup
 	static JFrame settingsFrame = new JFrame("Settings");
