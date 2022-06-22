@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -27,11 +29,21 @@ public class Threads {
 				// Timer countdown.
 				while (Global.testActive) {
 
+					// Update timer text.
+					Global.timeDisplay.setText(Integer.toString(Global.secondsRemaining));
+
+					// Decrement timer by 1 second.
+					Global.secondsRemaining--;
+
 					// Test ended.
 					if (Global.secondsRemaining == 0) {
 						Global.testActive = false;
 						Global.testEnded = true;
-						TestResult.endTest();
+						try {
+							TestResult.endTest();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 
 						break;
 					}
@@ -44,12 +56,6 @@ public class Threads {
 					// Try/catch is mandatory for .sleep()
 					catch (InterruptedException e) {
 					}
-
-					// Update timer text.
-					Global.timeDisplay.setText(Integer.toString(Global.secondsRemaining));
-
-					// Decrement timer by 1 second.
-					Global.secondsRemaining--;
 
 					// Store current WPM for WPM line graph.
 					TestResult.storeWPM();

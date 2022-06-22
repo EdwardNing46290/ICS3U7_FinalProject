@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.io.*;
 import java.util.Arrays;
 import java.util.ArrayList;
 
@@ -14,19 +15,44 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class TestResult {
 
     /** Display results */
-    public static void endTest() {
+    public static void endTest() throws IOException {
 
         // Stop user from typing.
         Global.typingArea.setEditable(false);
 
-        // Reuse timer number to display score
-        Global.timeDisplay.setText("WPM: " + TestResult.calculateWPM());
+        // Calculate score
+        int wpm = TestResult.calculateWPM();
 
         // Display results
         Global.textDisplay.add(resultsPanel(), 0);
 
-
         TypingTest.reset();
+
+        // Save score
+        FileWriter fileWriter = new FileWriter("scores.txt", true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(wpm + "\n");
+        bufferedWriter.close();
+
+        // Calculate average score
+        FileReader fileReader = new FileReader("scores.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        ArrayList<Integer> scores = new ArrayList<>();
+        String score;
+        while ((score = bufferedReader.readLine()) != null) {
+            scores.add(Integer.parseInt(score));
+        }
+        int average = 0;
+        for (int x : scores) {
+            average += x;
+        }
+        average /= scores.size();
+        System.out.println(wpm + " " + scores.size());
+
+        // Display score and average
+        Global.timeDisplay.setText("WPM: " + wpm + " AVG: " + average);
+
     }
 
     /** Build results panel */

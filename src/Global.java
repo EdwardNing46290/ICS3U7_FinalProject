@@ -28,7 +28,7 @@ public class Global {
 
 	}
 	enum TimeDisplayFont {;
-		final static int SCALE = 5;
+		final static int SCALE = 9;
 		final static int SIZE = Screen.HEIGHT / SCALE;
 		final static Font FONT = new Font(Font.MONOSPACED, Font.PLAIN, SIZE);
 	}
