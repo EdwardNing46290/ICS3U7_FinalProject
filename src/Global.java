@@ -1,74 +1,94 @@
-/**
- * Variables to be accessed by multiple classes.
- */
 import java.awt.*;
 import javax.swing.*;
-import java.util.Calendar;
 import java.util.ArrayList;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 
+/**
+ * Variables to be accessed by multiple classes.
+ */
 public class Global {
 
 	// Screen size
-	final static Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-	final static int X = screen.width - 200; // Subtract to make sure that the entire window is visible.
-	final static int Y = screen.height - 100;
+	enum Screen {;
+		final static Dimension SCREEN = Toolkit.getDefaultToolkit().getScreenSize();
+		final static int WIDTH = SCREEN.width - 200; // Subtract to make sure that the entire window is visible.
+		final static int HEIGHT = SCREEN.height - 100;
+	}
 
 	// Panel size
-	static int centerPanelWidth = X / 2;
-	static int sidePanelWidth = (X - centerPanelWidth) / 2;
+	final static int CENTER_PANEL_WIDTH = Screen.WIDTH / 2;
+	final static int SIDE_PANEL_WIDTH = (Screen.WIDTH - CENTER_PANEL_WIDTH) / 2;
 
-	// Font
-	static int typingAreaFontScale = 28;
-	static Font typingAreaFont = new Font(Font.MONOSPACED, Font.PLAIN, Y / typingAreaFontScale);
-	static int timeDisplayFontScale = 5;
-	static Font timeDisplayFont = new Font(Font.MONOSPACED, Font.PLAIN, Y / timeDisplayFontScale);
+	// Fonts
+	enum TypingAreaFont {;
+		final static int SCALE = 28;
+		final static int SIZE = Screen.HEIGHT / SCALE;
+		final static Font FONT = new Font(Font.MONOSPACED, Font.PLAIN, SIZE);
+
+	}
+	enum TimeDisplayFont {;
+		final static int SCALE = 5;
+		final static int SIZE = Screen.HEIGHT / SCALE;
+		final static Font FONT = new Font(Font.MONOSPACED, Font.PLAIN, SIZE);
+	}
 
 	// Padding values determine the size of the gap between components and panel edges.
-	static int sidePaddingValueScale = 15;
-	static int sidePaddingValue = Y / sidePaddingValueScale;
+	enum Padding {;
+		final static int SIDE_PANEL_PADDING_SCALE = 15;
+		final static int SIDE_PANEL = Screen.HEIGHT / SIDE_PANEL_PADDING_SCALE;
 
-	static int centerPaddingValueScale = 15;
-	static int centerPaddingValue = Y / centerPaddingValueScale;
+		final static int CENTER_PANEL_PADDING_SCALE = 15;
+		final static int CENTER_PANEL = Screen.HEIGHT / CENTER_PANEL_PADDING_SCALE;
 
-	static int generatedTextPaddingScale = 30;
-	static int generatedTextPaddingValue = Y / generatedTextPaddingScale;
-	
-	static int displayPaddingScale = 20;
-	static int displayPaddingValue = Y / displayPaddingScale;
+		final static int GENERATED_TEXT_BOX_SCALE = 30;
+		final static int GENERATED_TEXT_BOX = Screen.HEIGHT / GENERATED_TEXT_BOX_SCALE;
+	}
 
-	// Borders
-	static Border sidePaddingBorder = BorderFactory.createEmptyBorder
-			(sidePaddingValue, sidePaddingValue, sidePaddingValue, sidePaddingValue); // top left bottom right
-	static Border levelPanelLineBorder = BorderFactory.createMatteBorder(Y/10, Y/50, Y/10, 0, Color.BLACK);
-	static Border timePanelLineBorder = BorderFactory.createMatteBorder(Y/10, 0, Y/10, Y/50, Color.BLACK);
-	static Border levelPanelBorder = new CompoundBorder(levelPanelLineBorder, sidePaddingBorder);
-	static Border timePanelBorder = new CompoundBorder(timePanelLineBorder, sidePaddingBorder);
+	// Borders for panels and text boxes
+	enum Borders {;
+		final static Border SIDE_PANEL_PADDING_BORDER = BorderFactory.createEmptyBorder
+				(Padding.SIDE_PANEL, Padding.SIDE_PANEL, Padding.SIDE_PANEL, Padding.SIDE_PANEL); // top left bottom right
 
-	static Border centerPaddingBorder = BorderFactory.createEmptyBorder
-			(centerPaddingValue, centerPaddingValue, centerPaddingValue, centerPaddingValue);
-	static Border centerLineBorder = BorderFactory.createMatteBorder(0, 0, 20, 0, Color.BLACK);
-	static Border centerBorder = new CompoundBorder(centerLineBorder, centerPaddingBorder);
+		final static Border LEVEL_PANEL_LINE_BORDER = BorderFactory.createMatteBorder
+				(Screen.HEIGHT /10, Screen.HEIGHT /50, Screen.HEIGHT /10, 0, Color.BLACK);
 
-	static Border generatedTextPaddingBorder = BorderFactory.createEmptyBorder
-			(generatedTextPaddingValue, generatedTextPaddingValue, generatedTextPaddingValue, generatedTextPaddingValue);
-	static Border generatedTextLineBorder = BorderFactory.createMatteBorder(20, 20, 20, 20, new Color(45, 31, 19, 255));
-	static Border generatedTextBorder = new CompoundBorder(generatedTextLineBorder, generatedTextPaddingBorder);
-	
-	static Border displayBorder = BorderFactory.createEmptyBorder
-			(displayPaddingValue, displayPaddingValue, displayPaddingValue, displayPaddingValue);
-	static Border textDisplayPaddingBorder = BorderFactory.createMatteBorder(20, 20, 20, 20, Color.RED);
-	
-	static Border sideBorder = new CompoundBorder(sidePaddingBorder, sidePaddingBorder);
+		final static Border TIME_PANEL_LINE_BORDER = BorderFactory.createMatteBorder
+				(Screen.HEIGHT /10, 0, Screen.HEIGHT /10, Screen.HEIGHT /50, Color.BLACK);
+
+		final static Border CENTER_PANEL_PADDING_BORDER = BorderFactory.createEmptyBorder
+				(Padding.CENTER_PANEL, Padding.CENTER_PANEL, Padding.CENTER_PANEL, Padding.CENTER_PANEL);
+
+		final static Border CENTER_PANEL_LINE_BORDER = BorderFactory.createMatteBorder
+				(0, 0, 20, 0, Color.BLACK);
+
+		final static Border GENERATED_TEXT_BOX_PADDING_BORDER = BorderFactory.createEmptyBorder
+				(Padding.GENERATED_TEXT_BOX, Padding.GENERATED_TEXT_BOX, Padding.GENERATED_TEXT_BOX, Padding.GENERATED_TEXT_BOX);
+
+		final static Border GENERATED_TEXT_BOX_LINE_BORDER = BorderFactory.createMatteBorder
+				(20, 20, 20, 20, new Color(45, 31, 19, 255));
+
+		// Final borders to be used (a combination of 2 borders)
+		final static Border LEVEL_PANEL_BORDER = new CompoundBorder
+				(Borders.LEVEL_PANEL_LINE_BORDER, Borders.SIDE_PANEL_PADDING_BORDER);
+
+		final static Border TIME_PANEL_BORDER = new CompoundBorder
+				(Borders.TIME_PANEL_LINE_BORDER, Borders.SIDE_PANEL_PADDING_BORDER);
+
+		final static Border CENTER_BORDER = new CompoundBorder
+				(Borders.CENTER_PANEL_LINE_BORDER, Borders.CENTER_PANEL_PADDING_BORDER);
+
+		final static Border GENERATED_TEXT_BOX_BORDER = new CompoundBorder
+				(Borders.GENERATED_TEXT_BOX_LINE_BORDER, Borders.GENERATED_TEXT_BOX_PADDING_BORDER);
+	}
 
 	// Components
 	static JFrame frame;
 	static JPanel levelPanel;
 	static JPanel timePanel;
-	static JPanel centerPanel; // Contains textDisplay, timeDisplay, and resultPanel
-		static JLayeredPane textDisplay; // Contains generatedText and typingArea
-			static JTextArea generatedText;
+	static JPanel centerPanel; // Contains textDisplay, timeDisplay, and resultsPanel
+		static JLayeredPane textDisplay; // Contains generatedTextArea and typingArea
+			static JTextArea generatedTextArea;
 			static JTextArea typingArea;
 		static JTextField timeDisplay;
 		static JPanel resultsPanel;
@@ -85,22 +105,28 @@ public class Global {
 	static ArrayList<String> easyBank = new ArrayList<>();
 	static ArrayList<String> mediumBank = new ArrayList<>();
 	static ArrayList<String> hardBank = new ArrayList<>();
-	static ArrayList<String> currentBank = new ArrayList<>();
-	static ArrayList<String> textCache = new ArrayList<>();
-	static int textDisplayCharacterLimit = centerPanelWidth / typingAreaFontScale;
+	static ArrayList<String> generatedText = new ArrayList<>();
+
+	// Calculate number of characters in a line of text for text deleting purposes (see Threads class -> clearTextThread)
+	final static int TEXT_BOX_CHARACTER_LIMIT = (CENTER_PANEL_WIDTH - Padding.CENTER_PANEL * 2 -
+			Padding.GENERATED_TEXT_BOX * 2 - 80) / (TypingAreaFont.SIZE / 2);
 
 	// Timer
 	static int testDuration = 30;
 	static int secondsRemaining = 30;
-	static float currentTime = System.currentTimeMillis();
-	static String recordDay = String.valueOf(Calendar.getInstance());
 	static boolean testActive = false;
-	
-	static Border menuBorder = new CompoundBorder();
 
 	// Test results
-	static String userTextAsString;
-	static ArrayList<String> userText = new ArrayList<>();
+	static String currentUserTextAsString = ""; // User-typed text that is currently visible
 	static ArrayList<Integer> wpmUpdates = new ArrayList<>();
-	static int correctWords;
+	static ArrayList<String> allUserText = new ArrayList<>();
+	static String deletedUserText = "";
+	static boolean testEnded = false;
+
+	/*
+	static float currentTime = System.currentTimeMillis();
+	static String recordDay = String.valueOf(Calendar.getInstance());
+	static Border menuBorder = new CompoundBorder();
+	 */
+
 }

@@ -1,88 +1,94 @@
-/**
- * Class of methods that construct the following panels
- * - Level or difficulty panel - left side
- * - Time panel - right side
- * - Center panel
- * 	 - Text display - user input, randomly generated text
- * 	 - Time display - test time remaining
- */
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
+/**
+ * Class of methods that construct the following panels <br>
+ * - Level or difficulty panel - left side <br>
+ * - Time (test duration) panel - right side <br>
+ * - Center panel <br>
+ *   - Text display - user input, randomly generated text <br>
+ *   - Timer <br>
+ *   - WPM graph - user typing speed during the entire test
+ */
 public class Panels {
 
-	/* Typing test difficulty (left side of screen) */
+	/** Typing test difficulty (left side of screen) */
 	public static JPanel createLevelPanel() {
 		JPanel levelPanel = new JPanel();
 		Global.levelPanel = levelPanel;
 
 		// Format
-		levelPanel.setBounds(0, 0, Global.sidePanelWidth, Global.Y);
+		levelPanel.setBounds(0, 0, Global.SIDE_PANEL_WIDTH, Global.Screen.HEIGHT);
 		levelPanel.setLayout(new GridLayout(3, 1, 80, 80)); // Rows, columns, horizontal gap, vertical gap
 
 		// Optional formatting
-		levelPanel.setBorder(Global.levelPanelBorder);
+		levelPanel.setBorder(Global.Borders.LEVEL_PANEL_BORDER);
 		levelPanel.setBackground(new Color(57, 51, 70)); // RGB
 
 		// Components
 		JButton levelEasy = new JButton("Easy");
-		JButton levelMed = new JButton("Medium");
+		JButton levelMedium = new JButton("Medium");
 		JButton levelHard = new JButton("Hard");
-		ActionListener levelEasyAL = e -> TextGenerator.generateTextCache(1);
-		ActionListener levelMedAL = e -> TextGenerator.generateTextCache(2);
-		ActionListener levelHardAL = e -> TextGenerator.generateTextCache(3);
+
+		ActionListener levelEasyAL = al -> TextGenerator.setDifficulty(1, true, true);
+		ActionListener levelMediumAL = al -> TextGenerator.setDifficulty(2, true, true);
+		ActionListener levelHardAL = al -> TextGenerator.setDifficulty(3, true, true);
+
 		levelEasy.addActionListener(levelEasyAL);
-		levelMed.addActionListener(levelMedAL);
+		levelMedium.addActionListener(levelMediumAL);
 		levelHard.addActionListener(levelHardAL);
 		levelPanel.add(levelEasy);
-		levelPanel.add(levelMed);
+		levelPanel.add(levelMedium);
 		levelPanel.add(levelHard);
 
 		return levelPanel;
 	}
 
-	/* For choosing typing test duration (right side of screen) */
+	/** For choosing typing test duration (right side of screen) */
 	public static JPanel createTimePanel() {
 		JPanel timePanel = new JPanel();
 		Global.timePanel = timePanel;
 
 		// Format
 		timePanel.setLayout(new GridLayout(3, 1, 80, 80));
-		timePanel.setBounds(Global.sidePanelWidth + Global.centerPanelWidth, 0, Global.sidePanelWidth, Global.Y);
+		timePanel.setBounds(Global.SIDE_PANEL_WIDTH + Global.CENTER_PANEL_WIDTH, 0,
+				Global.SIDE_PANEL_WIDTH, Global.Screen.HEIGHT);
 
 		// Optional formatting
-		timePanel.setBorder(Global.timePanelBorder);
+		timePanel.setBorder(Global.Borders.TIME_PANEL_BORDER);
 		timePanel.setBackground(new Color(57, 51, 70));
 
 		// Components
-		JButton tensec = new JButton("10 sec");
-		JButton thirtysec = new JButton("30 sec");
-		JButton sixtysec = new JButton("60 sec");
-		ActionListener tensecAL = e -> Timer.setTime(10);
-		ActionListener thirtysecAL = e -> Timer.setTime(30);
-		ActionListener sixtysecAL = e -> Timer.setTime(60);
-		tensec.addActionListener(tensecAL);
-		thirtysec.addActionListener(thirtysecAL);
-		sixtysec.addActionListener(sixtysecAL);
-		timePanel.add(tensec);
-		timePanel.add(thirtysec);
-		timePanel.add(sixtysec);
+		JButton tenSecondButton = new JButton("10 sec");
+		JButton thirtySecondButton = new JButton("30 sec");
+		JButton sixtySecondButton = new JButton("60 sec");
+
+		ActionListener tenSecondButtonAL = e -> Timer.setTime(10);
+		ActionListener thirtySecondButtonAL = e -> Timer.setTime(30);
+		ActionListener sixtySecondButtonAL = e -> Timer.setTime(60);
+
+		tenSecondButton.addActionListener(tenSecondButtonAL);
+		thirtySecondButton.addActionListener(thirtySecondButtonAL);
+		sixtySecondButton.addActionListener(sixtySecondButtonAL);
+		timePanel.add(tenSecondButton);
+		timePanel.add(thirtySecondButton);
+		timePanel.add(sixtySecondButton);
 
 		return timePanel;
 	}
 
-	/* Center panel with text display and timer */
+	/** Center panel with text display and timer */
 	public static JPanel createCenterPanel() {
 		JPanel centerPanel = new JPanel();
 		Global.centerPanel = centerPanel;
 
 		// Format
 		centerPanel.setLayout(null);
-		centerPanel.setBounds(Global.sidePanelWidth, 0, Global.centerPanelWidth, Global.Y);
+		centerPanel.setBounds(Global.SIDE_PANEL_WIDTH, 0, Global.CENTER_PANEL_WIDTH, Global.Screen.HEIGHT);
 
 		// Optional formatting
-		centerPanel.setBorder(Global.centerBorder);
+		centerPanel.setBorder(Global.Borders.CENTER_BORDER);
 		centerPanel.setBackground(new Color(57, 51, 70));
 
 		// Components
@@ -95,14 +101,14 @@ public class Panels {
 		return centerPanel;
 	}
 
-	/* Area where user reads and types words */
+	/** Area where user reads and types words */
 	public static JLayeredPane createTextDisplay() {
 		JLayeredPane textDisplay = new JLayeredPane();
 		Global.textDisplay = textDisplay;
 
 		// Format
-		textDisplay.setAlignmentX(Global.X/2);
-		textDisplay.setBounds(Global.sidePanelWidth, 0, Global.centerPanelWidth, Global.Y/2);
+		textDisplay.setAlignmentX(Global.Screen.WIDTH / 2);
+		textDisplay.setBounds(Global.SIDE_PANEL_WIDTH, 0, Global.CENTER_PANEL_WIDTH, Global.Screen.HEIGHT / 2);
 
 		// Components
 		JTextArea generatedText = createGeneratedTextArea();
@@ -111,56 +117,49 @@ public class Panels {
 		JTextArea typingArea = createUserTypingArea();
 		textDisplay.add(typingArea, 0);
 
-		JButton restart = new JButton("Restart");
-		ActionListener restartAL = e -> Timer.setTime(Global.testDuration);
-		restart.addActionListener(restartAL);
-		restart.setBounds(Global.centerPanelWidth/2-Global.centerPanelWidth/8, Global.Y/3, Global.centerPanelWidth/4, Global.Y/10);
-		restart.setAlignmentX(Global.X/2);
-		textDisplay.add(restart, 0);
-
 		return textDisplay;
 	}
 
-	/* Show generated text for user to type */
+	/** Show generated text for user to type */
 	public static JTextArea createGeneratedTextArea() {
 
-		// Temporary placeholder text
-		JTextArea generatedText = new JTextArea(6, Global.textDisplayCharacterLimit);
-		Global.generatedText = generatedText;
-		TextGenerator.generateTextCache(2);
+		// Generate text, default difficulty is medium.
+		JTextArea generatedTextArea = new JTextArea();
+		Global.generatedTextArea = generatedTextArea;
+		TextGenerator.setDifficulty(2, true, true);
 
 		// Format
-		generatedText.setLineWrap(true);
-		generatedText.setEditable(false);
-		generatedText.setWrapStyleWord(true);
-		generatedText.setBounds(0, 0, Global.centerPanelWidth, Global.Y/2);
+		generatedTextArea.setLineWrap(true);
+		generatedTextArea.setEditable(false);
+		generatedTextArea.setWrapStyleWord(true);
+		generatedTextArea.setBounds(0, 0, Global.CENTER_PANEL_WIDTH, Global.Screen.HEIGHT / 2);
 
 		// Optional formatting
 		int gap = 40;
-		generatedText.setMargin(new Insets(gap, gap, gap, gap));
-		generatedText.setBorder(Global.generatedTextBorder);
-		generatedText.setFont(Global.typingAreaFont);
-		generatedText.setForeground(new Color(186, 132, 94));
-		generatedText.setBackground(new Color(83, 67, 55, 255));
+		generatedTextArea.setMargin(new Insets(gap, gap, gap, gap));
+		generatedTextArea.setBorder(Global.Borders.GENERATED_TEXT_BOX_BORDER);
+		generatedTextArea.setFont(Global.TypingAreaFont.FONT);
+		generatedTextArea.setForeground(new Color(186, 132, 94));
+		generatedTextArea.setBackground(new Color(83, 67, 55, 255));
 
-		return generatedText;
+		return generatedTextArea;
 	}
 
-	/* Where user types in characters. */
+	/** Where user types in characters. */
 	public static JTextArea createUserTypingArea() {
-		JTextArea typingArea = new JTextArea("", 6, Global.textDisplayCharacterLimit);
+		JTextArea typingArea = new JTextArea();
 		Global.typingArea = typingArea;
 
 		// Format
 		typingArea.setLineWrap(true);
 		typingArea.setWrapStyleWord(true);
-		typingArea.setBounds(0, 0, Global.centerPanelWidth, Global.Y/2);
+		typingArea.setBounds(0, 0, Global.CENTER_PANEL_WIDTH, Global.Screen.HEIGHT / 2);
 
 		// Optional formatting
 		int gap = 40;
 		typingArea.setMargin(new Insets(gap, gap, gap, gap));
-		typingArea.setBorder(Global.generatedTextBorder);
-		typingArea.setFont(Global.typingAreaFont);
+		typingArea.setBorder(Global.Borders.GENERATED_TEXT_BOX_BORDER);
+		typingArea.setFont(Global.TypingAreaFont.FONT);
 		typingArea.setForeground(new Color(255, 123, 0));
 		typingArea.setBackground(new Color(0, 0, 0, 0));
 		typingArea.setCaretColor(Color.white);
@@ -168,7 +167,7 @@ public class Panels {
 		return typingArea;
 	}
 
-	/* Remaining seconds until typing test end */
+	/** Timer */
 	public static JTextField createTimeDisplay() {
 		JTextField timeDisplay = new JTextField(Integer.toString(Global.secondsRemaining));
 		Global.timeDisplay = timeDisplay;
@@ -176,13 +175,39 @@ public class Panels {
 		// Format
 		timeDisplay.setHorizontalAlignment(JTextField.CENTER);
 		timeDisplay.setEditable(false);
-		timeDisplay.setBounds(Global.sidePanelWidth, Global.Y/2, Global.centerPanelWidth, Global.Y/2);
+		timeDisplay.setBounds(Global.SIDE_PANEL_WIDTH, Global.Screen.HEIGHT / 2, Global.CENTER_PANEL_WIDTH, Global.Screen.HEIGHT / 2);
 
 		// Optional formatting
-		timeDisplay.setFont(Global.timeDisplayFont);
-		timeDisplay.setBorder(Global.centerLineBorder);
+		timeDisplay.setFont(Global.TimeDisplayFont.FONT);
+		timeDisplay.setBorder(Global.Borders.CENTER_PANEL_LINE_BORDER);
 		timeDisplay.setForeground(new Color(188, 188, 188));
 		timeDisplay.setBackground(new Color(67, 67, 67, 0));
+
+		// Components
+		JButton restart = new JButton("Restart");
+
+		ActionListener restartAL = e -> {
+
+			// Restart progress if test hasn't finished.
+			if (Global.testActive) {
+				TypingTest.reset();
+				Timer.setTime(Global.testDuration);
+			}
+
+			// If test ended, generate and display new text.
+			if (Global.testEnded) {
+				Timer.setTime(Global.testDuration);
+				TextGenerator.setDifficulty(Global.testLevel, true, true);
+				Global.testEnded = false;
+			}
+		};
+
+		restart.setBounds(Global.CENTER_PANEL_WIDTH / 2 - Global.CENTER_PANEL_WIDTH / 8, Global.Screen.HEIGHT/40,
+				Global.CENTER_PANEL_WIDTH / 4, Global.Screen.HEIGHT / 10);
+		restart.setAlignmentX(Global.CENTER_PANEL_WIDTH / 2);
+		restart.setAlignmentX(Global.Screen.WIDTH / 2);
+		restart.addActionListener(restartAL);
+		timeDisplay.add(restart);
 
 		return timeDisplay;
 	}

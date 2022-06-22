@@ -1,11 +1,11 @@
-/**
- * Stores word bank words into a list.
- */
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.BufferedReader;
 
+/**
+ * Stores word bank into a list.
+ */
 public class WordBankCompiler {
 
 	// Compile the word bank for each typing test difficulty
