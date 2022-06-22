@@ -43,16 +43,18 @@ public class TestResult {
         while ((score = bufferedReader.readLine()) != null) {
             scores.add(Integer.parseInt(score));
         }
+        int highScore = 0;
         int average = 0;
         for (int x : scores) {
             average += x;
+            highScore = Math.max(highScore, x);
         }
         average /= scores.size();
-        System.out.println(wpm + " " + scores.size());
 
         // Display score and average
         Global.timeDisplay.setFont(Global.TimeDisplayFont.SCORE_FONT);
-        Global.timeDisplay.setText("WPM: " + wpm + " AVG: " + average);
+        Global.timeDisplay.setText("WPM: " + wpm);
+        Global.scoreDisplay.setText(" HI: " + highScore + " AVG: " + average);
 
     }
 

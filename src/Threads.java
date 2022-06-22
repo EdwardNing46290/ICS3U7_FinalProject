@@ -81,16 +81,13 @@ public class Threads {
 					TimeUnit.MILLISECONDS.sleep(20);
 				} catch (InterruptedException e) {}
 
-				// Do not run if user has not typed anything.
-				if (Global.currentUserTextAsString == null) {
+				// Do not run if user has not typed anything or there is too much text.
+				if (Global.currentUserTextAsString == null || Global.generatedTextArea.getText().length() < Global.currentUserTextAsString.length()) {
 					continue;
 				}
 
 				// True if user typed 2 rows of words.
-				if (Global.currentUserTextAsString.length() >= Global.TEXT_BOX_CHARACTER_LIMIT * 2
-						/* True if there is enough generated text to delete. This check is necessary
-						because there is a limited amount of generated text (300 words). */
-						&& Global.generatedTextArea.getText().length() > Global.TEXT_BOX_CHARACTER_LIMIT) {
+				if (Global.currentUserTextAsString.length() >= Global.TEXT_BOX_CHARACTER_LIMIT * 2) {
 
 					// Store the text that is going to be deleted
 					String deletedUserText = Global.currentUserTextAsString.substring(0, Global.TEXT_BOX_CHARACTER_LIMIT);

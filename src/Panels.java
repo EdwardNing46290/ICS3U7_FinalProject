@@ -125,6 +125,38 @@ public class Panels {
 		JTextField timeDisplay = createTimeDisplay();
 		centerPanel.add(timeDisplay);
 
+		JTextField scoreDisplay = createScoreDisplay();
+		centerPanel.add(scoreDisplay);
+
+		JButton restart = new JButton("Restart");
+		restart.setBackground(new Color(83, 67, 55, 255));
+		restart.setForeground(new Color(198, 161, 135));
+		restart.setFont(Global.TypingAreaFont.FONT);
+		restart.setBorder(Global.Borders.BUTTON_BORDER);
+
+		ActionListener restartAL = e -> {
+
+			// Restart progress if test hasn't finished.
+			if (Global.testActive) {
+				TypingTest.reset();
+				Timer.setTime(Global.testDuration);
+			}
+
+			// If test ended, generate and display new text.
+			if (Global.testEnded) {
+				Timer.setTime(Global.testDuration);
+				TextGenerator.setDifficulty(Global.testLevel, true, true);
+				Global.testEnded = false;
+			}
+		};
+
+		restart.setBounds(Global.CENTER_PANEL_WIDTH / 2 - Global.CENTER_PANEL_WIDTH / 8, Global.Screen.HEIGHT/40,
+				Global.CENTER_PANEL_WIDTH / 4, Global.Screen.HEIGHT / 10);
+		restart.setAlignmentX(Global.CENTER_PANEL_WIDTH / 2);
+		restart.setAlignmentX(Global.Screen.WIDTH / 2);
+		restart.addActionListener(restartAL);
+		timeDisplay.add(restart);
+
 		return centerPanel;
 	}
 
@@ -210,37 +242,26 @@ public class Panels {
 		timeDisplay.setForeground(new Color(188, 188, 188));
 		timeDisplay.setBackground(new Color(67, 67, 67, 0));
 
-		// Components
-		JButton restart = new JButton("Restart");
-		restart.setBackground(new Color(83, 67, 55, 255));
-		restart.setForeground(new Color(198, 161, 135));
-		restart.setFont(Global.TypingAreaFont.FONT);
-		restart.setBorder(Global.Borders.BUTTON_BORDER);
-
-		ActionListener restartAL = e -> {
-
-			// Restart progress if test hasn't finished.
-			if (Global.testActive) {
-				TypingTest.reset();
-				Timer.setTime(Global.testDuration);
-			}
-
-			// If test ended, generate and display new text.
-			if (Global.testEnded) {
-				Timer.setTime(Global.testDuration);
-				TextGenerator.setDifficulty(Global.testLevel, true, true);
-				Global.testEnded = false;
-			}
-		};
-
-		restart.setBounds(Global.CENTER_PANEL_WIDTH / 2 - Global.CENTER_PANEL_WIDTH / 8, Global.Screen.HEIGHT/40,
-				Global.CENTER_PANEL_WIDTH / 4, Global.Screen.HEIGHT / 10);
-		restart.setAlignmentX(Global.CENTER_PANEL_WIDTH / 2);
-		restart.setAlignmentX(Global.Screen.WIDTH / 2);
-		restart.addActionListener(restartAL);
-		timeDisplay.add(restart);
-
 		return timeDisplay;
+	}
+
+	/** Score */
+	public static JTextField createScoreDisplay() {
+		JTextField scoreDisplay = new JTextField();
+		Global.scoreDisplay = scoreDisplay;
+
+		// Format
+		scoreDisplay.setHorizontalAlignment(JTextField.CENTER);
+		scoreDisplay.setEditable(false);
+		scoreDisplay.setBounds(Global.SIDE_PANEL_WIDTH, (int) (Global.Screen.HEIGHT / 1.7), Global.CENTER_PANEL_WIDTH, Global.Screen.HEIGHT / 2);
+
+		// Optional formatting
+		scoreDisplay.setFont(Global.TimeDisplayFont.SCORE_FONT);
+		scoreDisplay.setBorder(Global.Borders.CENTER_PANEL_LINE_BORDER);
+		scoreDisplay.setForeground(new Color(188, 188, 188));
+		scoreDisplay.setBackground(new Color(67, 67, 67, 0));
+
+		return scoreDisplay;
 	}
 
 	// Change button colours

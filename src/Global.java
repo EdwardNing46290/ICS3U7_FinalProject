@@ -28,7 +28,7 @@ public class Global {
 
 	}
 	enum TimeDisplayFont {;
-		final static int TIMER_SCALE = 5;
+		final static int TIMER_SCALE = 7;
 		final static int SCORE_SCALE = 12;
 		final static int TIMER_SIZE = Screen.HEIGHT / TIMER_SCALE;
 		final static int SCORE_SIZE = Screen.HEIGHT / SCORE_SCALE;
@@ -97,6 +97,7 @@ public class Global {
 			static JTextArea generatedTextArea;
 			static JTextArea typingArea;
 		static JTextField timeDisplay;
+		static JTextField scoreDisplay;
 		static JPanel resultsPanel;
 	static ArrayList<JButton> levelButtons = new ArrayList<>();
 	static ArrayList<JButton> timeButtons = new ArrayList<>();
