@@ -1,9 +1,9 @@
-/**
- * Typing test GUI
- */
 import javax.swing.*;
 import java.io.IOException;
 
+/**
+ * Typing test GUI
+ */
 public class TypingTest {
 	public static void main() throws IOException {
 
@@ -13,7 +13,7 @@ public class TypingTest {
 		// Build GUI
 		JFrame frame = new JFrame("WPM test");
 		Global.frame = frame;
-		frame.setSize(Global.X, Global.Y);
+		frame.setSize(Global.Screen.WIDTH, Global.Screen.HEIGHT);
 
 		JPanel levelPanel = Panels.createLevelPanel();
 		JPanel timePanel = Panels.createTimePanel();
@@ -23,15 +23,32 @@ public class TypingTest {
 		Global.centerPanel = centerPanel;
 		frame.add(levelPanel);
 		frame.add(timePanel);
-		frame.add(centerPanel); // Must add last, GUI will not build properly otherwise. Reason unknown.
-		frame.setLocationRelativeTo(null);
+		frame.add(centerPanel); // Must add last, GUI will not build properly otherwise.
+		frame.setLocationRelativeTo(null); // Move frame to center of screen.
 
 		frame.setVisible(true);
 
-		// Start checking when the user starts the test.
+		// Start threads
 		Threads.startCheckTestStartedThread();
-
-		// Regularly repaint frame
+		Threads.startDeleteTextThread();
 		Threads.startRepaintFrameThread();
+		Threads.startMiscThread();
+	}
+
+	// Reset typing test variables to properly start next test.
+	public static void reset() {
+
+		// Delete user-typed text
+		Global.typingArea.setText("");
+
+		// Delete text storage
+		Global.allUserText.clear();
+		Global.deletedUserText = "";
+
+		// Remove WPM line graph data
+		Global.wpmUpdates.clear();
+
+		// Reset generated text
+		Global.generatedTextArea.setText(TextGenerator.getTextCacheAsString());
 	}
 }

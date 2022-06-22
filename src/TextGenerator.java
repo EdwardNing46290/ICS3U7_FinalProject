@@ -1,55 +1,70 @@
+import java.util.ArrayList;
+
 /**
  * Generates random text depending on test difficulty.
  */
-
 public class TextGenerator {
 
-	// Sets the test level, generates random text, and displays random text on a JTextArea
-	public static void generateTextCache(int testLevel) {
-		try {
-			Global.textDisplay.remove(Global.resultsPanel);
-			Global.typingArea.setEditable(true);
-		} catch (Exception e) {}
-
+	// Set the test difficulty, optionally generate and show text.
+	public static void setDifficulty(int testLevel, boolean generateText, boolean showText) {
 		Global.testLevel = testLevel;
 
+		// If typing test ended, remove the WPM line graph, allow user to type again, and generate new text.
+		if (Global.testEnded) {
+			Global.textDisplay.remove(Global.resultsPanel);
+			Global.typingArea.setEditable(true);
+			Global.testEnded = false;
+			Timer.setTime(Global.testDuration);
+		}
+
+		// Reset test if the test hasn't finished.
+		else if (Global.testActive) {
+			Global.testActive = false;
+			TypingTest.reset();
+			Timer.setTime(Global.testDuration);
+		}
+
+		if (generateText) {
+			generateTextCache();
+		}
+
+		if (showText) {
+			Global.generatedTextArea.setText(getTextCacheAsString());
+		}
+	}
+
+	// Generates random text.
+	public static void generateTextCache() {
+
 		// Decide which word bank to generate text from
+		ArrayList<String> currentWordBank = new ArrayList<>();
 		switch (Global.testLevel) {
 			case 1:
-				Global.currentBank = Global.easyBank;
+				currentWordBank = Global.easyBank;
 				break;
 			case 2:
-				Global.currentBank = Global.mediumBank;
+				currentWordBank = Global.mediumBank;
 				break;
 			case 3:
-				Global.currentBank = Global.hardBank;
+				currentWordBank = Global.hardBank;
 				break;
 		}
 
 		// Generate 300 words for user to type
 		int wordCount = 0;
-		int maxIndex = Global.currentBank.size();
+		int maxIndex = currentWordBank.size();
 		int randomIndex;
-		Global.textCache.clear();
-
+		Global.generatedText.clear();
 		while (wordCount < 300) {
 			randomIndex = (int) (Math.random() * maxIndex);
-			Global.textCache.add(Global.currentBank.get(randomIndex));
+			Global.generatedText.add(currentWordBank.get(randomIndex));
 			wordCount++;
 		}
-
-		// Reset timer and display newly generated text
-		if (Global.testActive) {
-			Timer.setTime(Global.testDuration);
-		}
-		Global.generatedText.setText(getTextCacheAsString());
-		Global.userText.clear();
 	}
 
 	public static String getTextCacheAsString() {
 		String output = "";
-
-		for (String word : Global.textCache) {
+		for (String word : Global.generatedText) {
 			output += word + " ";
 		}
 
