@@ -15,7 +15,7 @@ public class Threads {
 
 					// A pause is necessary for the code below to work.
 					try {
-						TimeUnit.MILLISECONDS.sleep(50);
+						TimeUnit.MILLISECONDS.sleep(20);
 					} catch (InterruptedException e) {}
 
 					// Condition is true after user starts typing.
@@ -53,8 +53,6 @@ public class Threads {
 
 					// Store current WPM for WPM line graph.
 					TestResult.storeWPM();
-
-					System.out.println(Global.wpmUpdates.get(Global.wpmUpdates.size()-1));
 				}
 			}
 		}
@@ -75,7 +73,7 @@ public class Threads {
 
 				// A pause to save CPU.
 				try {
-					TimeUnit.MILLISECONDS.sleep(50);
+					TimeUnit.MILLISECONDS.sleep(20);
 				} catch (InterruptedException e) {}
 
 				// Do not run if user has not typed anything.
@@ -124,7 +122,7 @@ public class Threads {
 
 				// A pause to save CPU.
 				try {
-					TimeUnit.MILLISECONDS.sleep(50);
+					TimeUnit.MILLISECONDS.sleep(20);
 				} catch (InterruptedException e) {}
 
 				Global.frame.repaint();
@@ -147,7 +145,7 @@ public class Threads {
 
 				// A pause to save CPU.
 				try {
-					TimeUnit.MILLISECONDS.sleep(50);
+					TimeUnit.MILLISECONDS.sleep(20);
 				} catch (InterruptedException e) {}
 
 				// Select text box, so user doesn't have to click it to start typing
