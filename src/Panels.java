@@ -98,6 +98,9 @@ public class Panels {
 		Global.timeButtons.add(thirtySecondButton);
 		Global.timeButtons.add(sixtySecondButton);
 		formatButton(thirtySecondButton, false);
+		timePanel.add(tenSecondButton);
+		timePanel.add(thirtySecondButton);
+		timePanel.add(sixtySecondButton);
 
 		return timePanel;
 	}
