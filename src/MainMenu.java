@@ -14,6 +14,9 @@ import javax.swing.JLabel;
 public class MainMenu implements ActionListener {
 	
 	JFrame frame = new JFrame();
+	// main menu icons
+	JButton button = new JButton();
+	
 	JButton typingTest = new JButton("Typing Test");
 	JButton settings = new JButton("Settings"); // add image of a gear
 	JButton scores = new JButton("Scores"); // add image of trophy
@@ -21,8 +24,40 @@ public class MainMenu implements ActionListener {
 	JButton login = new JButton("Login");
 	JButton signUp = new JButton("Sign Up");
 	
+	
+	try {
+		Image keyboard = ImageIO.read(getClass().getResource("resources/keyboard.jpg"));
+		typingTest.setIcon(new ImageIcon(keyboard));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	
+	try {
+		Image gear = ImageIO.read(getClass().getResource("resources/gear.jpg"));
+		settings.setIcon(new ImageIcon(gear));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	
+	try {
+		Image trophy = ImageIO.read(getClass().getResource("resources/trophy.jpg"));
+		scores.setIcon(new ImageIcon(trophy));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	
+	try {
+		Image i = ImageIO.read(getClass().getResource("resources/i.jpg"));
+		info.setIcon(new ImageIcon(gear));
+	} catch (Exception ex) {
+		System.out.println(ex);
+	}
+	// Borrowed from Rogach
+	
 	JLabel title = new JLabel();
 	JLabel light_title = new JLabel();
+	
+	// background/font colours
 	Color yellow = new Color(255,255,0);
 	Color grey = new Color(1,1,1);
 	Color orange = new Color(255,215,0);
@@ -44,6 +79,7 @@ public class MainMenu implements ActionListener {
 		frame.setTitle("TypingTest Menu");
 		frame.setResizable(false);
 		
+		// images
 		ImageIcon background = new ImageIcon("background.jpg");
 		frame.setIconImage(background.getImage());
 		
@@ -124,10 +160,67 @@ public class MainMenu implements ActionListener {
 			}
 			frame.dispose();
 		}
-
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == info) {
+			try {
+				MainMenu info = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
 	}
 
-
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == scores) {
+			try {
+				MainMenu scores = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == login) {
+			try {
+				MainMenu login = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == signUp) {
+			try {
+				MainMenu signUp = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == settings) {
+			try {
+				MainMenu settings = new MainMenu();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			frame.dispose();
+		}
+	}
 	public static void main(String[] args) throws MalformedURLException {
 		MainMenu menuPage = new MainMenu();
 	}

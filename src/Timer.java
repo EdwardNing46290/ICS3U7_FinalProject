@@ -4,6 +4,10 @@
 public class Timer {
 
     public static void setTime(int seconds) {
+        try {
+            Global.textDisplay.remove(Global.resultsPanel);
+            Global.typingArea.setEditable(true);
+        } catch (Exception e) {}
 
         // Reset test if the test hasn't finished.
         if (Global.testActive) {
