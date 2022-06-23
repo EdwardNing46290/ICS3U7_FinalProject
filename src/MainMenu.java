@@ -141,7 +141,6 @@ public class MainMenu implements ActionListener {
 		frame.add(typingTest);
 		frame.add(login);
 		frame.add(signUp);
-		frame.add(settings);
 		frame.add(info);
 		frame.add(scores);
 		frame.add(title);
