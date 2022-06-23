@@ -47,8 +47,8 @@ public class Login implements ActionListener {
 		JTextField textField = new JTextField(15);
 		JTextField usernameInput = new JTextField("Enter your Username: ");
 		JTextField passwordInput = new JTextField("Enter your Password: ");
-        String usernameValue = usernameInput.getText();
-        String passwordValue = passwordInput.getText(); 
+        	String usernameValue = usernameInput.getText();
+        	String passwordValue = passwordInput.getText(); 
 		JButton login = new JButton("Login");
 		loginFrame.setSize(200,200);
 
@@ -62,7 +62,7 @@ public class Login implements ActionListener {
 		// passwordDisplay.setFont(TimesRoman);
 		loginFrame.add(passwordInput);
 
-		JButton confirm = new JButton("SUBMIT");
+		JButton confirm = new JButton("Submit Password");
 		HashMap loginInformation = new HashMap<>();
 		// ... check if the username exists and password is correct
 		try {
@@ -70,7 +70,7 @@ public class Login implements ActionListener {
 			String username = "";
 			String password = "";
 			String seperateUserPass [];
-			while (reader.hasNextLine) != null) {
+			while (reader.hasNextLine) {
 				seperateUserPass = currentLine.split(" ");
 				username = seperateUserPass[0];
 				password = seperateUserPass[1];
