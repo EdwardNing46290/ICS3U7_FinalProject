@@ -1,0 +1,17 @@
+# Batch file raises errors
+
+When running the batch file, the terminal will show several errors.
+
+This is normal, not preventable, and does not affect the game.
+
+## Reason for the errors
+
+The program imports classes from the .jar files (in jfreechart package). These classes are necessary to create graphs.
+
+The terminal does not account for the .jar files, so it says that the imported classes are not found.
+
+# Typing test game
+
+If the user types a word wrong, their words per minute (WPM) may be inaccurate.
+
+For best results, type every word correctly.
