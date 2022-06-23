@@ -54,12 +54,12 @@ public class Login {
 
 		// setBounds
 		JLabel usernameDisplay = new JLabel("Username");
-		// usernameDisplay.setBounds(__, __, __, __);
-		// usernameDisplay.setFont(TimesRoman);
+		usernameDisplay.setBounds(100, 100, 200, 50);
+		usernameDisplay.setFont(roman);
 		loginFrame.add(usernameInput);
 		JLabel passwordDisplay = new JLabel("Password");
-		// passwordDisplay.setBounds(__, __, __, __);
-		// passwordDisplay.setFont(TimesRoman);
+		passwordDisplay.setBounds(100, 120, 200, 50);
+		passwordDisplay.setFont(roman);
 		loginFrame.add(passwordInput);
 
 		JButton confirm = new JButton("Submit Password");
