@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -14,16 +16,59 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
 
-public class Info implements ActionListener {
-  	JLabel infoText = new JLabel;
- 	public Info () throws MalformedURLException{
+public class Info {
+	JFrame frame = new JFrame(); 
+	
+	JLabel infoText = new JLabel();
+	JLabel info = new JLabel();
+	JLabel signUpInfo = new JLabel();
+	JLabel loginInfo = new JLabel();
+	JLabel settingsInfo = new JLabel();
+	JLabel scoreInfo = new JLabel();
+	JLabel contactInfo = new JLabel();
+	JLabel wordsInfo = new JLabel();
+
+
+	public Info () throws MalformedURLException {
+		frame.setSize(900,800);
+		frame.setBackground(Color.BLACK);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    		JLabel infoText = new JLabel();
-		JFrame frame = new JFrame();
-		JLabel info = new JLabel("Created by Vincent Liu and Edward Ning");
-		JLabel signUpInfo = new JLabel("To sign up, enter a username and password; no email required");
-		JLabel loginInfo = new JLabel("To log in, enter the username and password you used to sign up previously");
-		JLabel settingsInfo = new JLabel("I have no idea rn");
-		JLabel scoreInfo = new JLabel("Stats shown: WPM (words per minute), percentage of correct words, and total words");
-		JLabel contactInfo = new JLabel("If you have any problems with our test, you can contact us here ___ play rickroll");
-		JLabel wordsInfo = new JLabel("We use the 100 most common english words for easy mode, 200 for medium, and 500 more difficult words for hard");
+		
+		infoText.setText("Created by Vincent Liu and Edward Ning");
+		infoText.setFont(new Font("Times New Roman", Font.BOLD, 80));
+		infoText.setBounds(130,-100,800,1000);
+		infoText.setForeground(Color.WHITE);
+		
+		signUpInfo.setText("To sign up, enter a username and password; no email required");
+		signUpInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
+		signUpInfo.setBounds(130,-100,800,1000);
+		signUpInfo.setForeground(Color.WHITE);
+		
+		loginInfo.setText("To log in, enter the username and password you used to sign up previously");
+		loginInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
+		loginInfo.setBounds(130,-100,800,1000);
+		loginInfo.setForeground(Color.WHITE);
+		
+		settingsInfo.setText("");
+		settingsInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
+		settingsInfo.setBounds(130,-100,800,1000);
+		settingsInfo.setForeground(Color.WHITE);
+		
+		scoreInfo.setText("Stats shown: WPM (words per minute), percentage of correct words, and total words");
+		scoreInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
+		scoreInfo.setBounds(130,-100,800,1000);
+		scoreInfo.setForeground(Color.WHITE);
+		
+		wordsInfo.setText("We use the 300 most common english words for easy mode, 500 for medium, and 1000 for hard");
+		wordsInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
+		wordsInfo.setBounds(130,-100,800,1000);
+		wordsInfo.setForeground(Color.WHITE);
+		
+		frame.add(infoText);
+		frame.add(signUpInfo);
+		frame.add(loginInfo);
+		frame.add(settingsInfo);
+		frame.add(scoreInfo);
+		frame.add(wordsInfo);
+	}
+}
