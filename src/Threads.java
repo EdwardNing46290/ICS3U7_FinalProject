@@ -78,7 +78,7 @@ public class Threads {
 
 				// A pause to save CPU.
 				try {
-					TimeUnit.MILLISECONDS.sleep(20);
+					TimeUnit.MILLISECONDS.sleep(10);
 				} catch (InterruptedException e) {}
 
 				// Do not run if user has not typed anything or there is too much text.
@@ -124,7 +124,7 @@ public class Threads {
 
 				// A pause to save CPU.
 				try {
-					TimeUnit.MILLISECONDS.sleep(10);
+					TimeUnit.MILLISECONDS.sleep(4);
 				} catch (InterruptedException e) {}
 
 				Global.frame.repaint();
@@ -147,7 +147,7 @@ public class Threads {
 
 				// A pause to save CPU.
 				try {
-					TimeUnit.MILLISECONDS.sleep(20);
+					TimeUnit.MILLISECONDS.sleep(10);
 				} catch (InterruptedException e) {}
 
 				// Select text box, so user doesn't have to click it to start typing
