@@ -36,32 +36,32 @@ public class Info {
 		
 		infoText.setText("Created by Vincent Liu and Edward Ning");
 		infoText.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		infoText.setBounds(130,-100,800,1000);
+		infoText.setBounds(130, 100, 800, 1000);
 		infoText.setForeground(Color.WHITE);
 		
 		signUpInfo.setText("To sign up, enter a username and password; no email required");
 		signUpInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		signUpInfo.setBounds(130,-100,800,1000);
+		signUpInfo.setBounds(130, 200, 800, 1000);
 		signUpInfo.setForeground(Color.WHITE);
 		
 		loginInfo.setText("To log in, enter the username and password you used to sign up previously");
 		loginInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		loginInfo.setBounds(130,-100,800,1000);
+		loginInfo.setBounds(130, 300, 800, 1000);
 		loginInfo.setForeground(Color.WHITE);
 		
 		settingsInfo.setText("");
 		settingsInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		settingsInfo.setBounds(130,-100,800,1000);
+		settingsInfo.setBounds(130, 400, 800, 1000);
 		settingsInfo.setForeground(Color.WHITE);
 		
 		scoreInfo.setText("Stats shown: WPM (words per minute), percentage of correct words, and total words");
 		scoreInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		scoreInfo.setBounds(130,-100,800,1000);
+		scoreInfo.setBounds(130, 500, 800, 1000);
 		scoreInfo.setForeground(Color.WHITE);
 		
 		wordsInfo.setText("We use the 300 most common english words for easy mode, 500 for medium, and 1000 for hard");
 		wordsInfo.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		wordsInfo.setBounds(130,-100,800,1000);
+		wordsInfo.setBounds(130, 600, 800, 1000);
 		wordsInfo.setForeground(Color.WHITE);
 		
 		infoFrame.add(infoText);
