@@ -33,7 +33,7 @@ public class Login implements ActionListener {
 	Login() {
 		// Username and Password
 		JFrame loginFrame = new JFrame();
-		loginFrame.setSize(550,300);
+		loginFrame.setSize(900,800);
 		loginFrame.setBackground(Color.GREEN);
 
 		JTextField usernameText = new JTextField("");
