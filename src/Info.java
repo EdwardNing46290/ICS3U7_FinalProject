@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 
 public class Info {
-	JFrame frame = new JFrame(); 
+	JFrame infoFrame = new JFrame(); 
 	
 	JLabel infoText = new JLabel();
 	JLabel info = new JLabel();
@@ -30,9 +30,9 @@ public class Info {
 
 
 	public Info () throws MalformedURLException {
-		frame.setSize(900,800);
-		frame.setBackground(Color.BLACK);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		infoFrame.setSize(900,800);
+		infoFrame.setBackground(Color.BLACK);
+		infoFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		infoText.setText("Created by Vincent Liu and Edward Ning");
 		infoText.setFont(new Font("Times New Roman", Font.BOLD, 80));
@@ -64,11 +64,11 @@ public class Info {
 		wordsInfo.setBounds(130,-100,800,1000);
 		wordsInfo.setForeground(Color.WHITE);
 		
-		frame.add(infoText);
-		frame.add(signUpInfo);
-		frame.add(loginInfo);
-		frame.add(settingsInfo);
-		frame.add(scoreInfo);
-		frame.add(wordsInfo);
+		infoFrame.add(infoText);
+		infoFrame.add(signUpInfo);
+		infoFrame.add(loginInfo);
+		infoFrame.add(settingsInfo);
+		infoFrame.add(scoreInfo);
+		infoFrame.add(wordsInfo);
 	}
 }
