@@ -20,13 +20,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class Login implements ActionListener {
-	
+public class Login {
+
 	static String file = "login.txt";
 	public JTextField usernameText;
 	public JTextField passwordText;
 	public HashMap<String,String> loginInfo;
-	
+
 	// Times New Roman
 	Font roman = new Font("TimesRoman", Font.PLAIN, 20);
 
@@ -37,18 +37,18 @@ public class Login implements ActionListener {
 		loginFrame.setBackground(Color.GREEN);
 
 		JTextField usernameText = new JTextField("");
-		JLabel usernameLabel = new JLabel();  
+		JLabel usernameLabel = new JLabel();
 		usernameLabel.setText("Username");
 
 		passwordText = new JTextField("");
-		JLabel passwordLabel = new JLabel();  
+		JLabel passwordLabel = new JLabel();
 		passwordLabel.setText("Password");
 
 		JTextField textField = new JTextField(15);
 		JTextField usernameInput = new JTextField("Enter your Username: ");
 		JTextField passwordInput = new JTextField("Enter your Password: ");
-        	String usernameValue = usernameInput.getText();
-        	String passwordValue = passwordInput.getText(); 
+		String usernameValue = usernameInput.getText();
+		String passwordValue = passwordInput.getText();
 		JButton login = new JButton("Login");
 		loginFrame.setSize(200,200);
 
@@ -66,11 +66,12 @@ public class Login implements ActionListener {
 		HashMap loginInformation = new HashMap<>();
 		// ... check if the username exists and password is correct
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(login.txt));
+			BufferedReader reader = new BufferedReader(new FileReader("login.txt"));
 			String username = "";
 			String password = "";
 			String seperateUserPass [];
-			while (reader.hasNextLine) {
+			String currentLine;
+			while ((currentLine = reader.readLine()) != null) {
 				// put a space between the username and password
 				seperateUserPass = currentLine.split(" ");
 				// username is the first word, then password is the second
