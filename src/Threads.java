@@ -31,9 +31,6 @@ public class Threads {
 					// Update timer text.
 					Global.timeDisplay.setText(Integer.toString(Global.secondsRemaining));
 
-					// Decrement timer by 1 second.
-					Global.secondsRemaining--;
-
 					// Test ended.
 					if (Global.secondsRemaining == 0) {
 						Global.testActive = false;
@@ -55,6 +52,9 @@ public class Threads {
 					// Try/catch is mandatory for .sleep()
 					catch (InterruptedException e) {
 					}
+
+					// Decrement timer by 1 second.
+					Global.secondsRemaining--;
 
 					// Store current WPM for WPM line graph.
 					TestResult.storeWPM();
