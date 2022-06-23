@@ -109,13 +109,7 @@ public class MainMenu implements ActionListener {
 		signUp.addActionListener(this);
 		signUp.setBackground(grey);
 
-		settings.setBounds(660, 20, 200, 75);
-		settings.setFocusable(false);
-		settings.setFont(new Font("Times New Roman", Font.PLAIN, 30));
-		settings.addActionListener(this);
-		settings.setBackground(grey);
-
-		info.setBounds(660, 120, 200, 75);
+		info.setBounds(660, 20, 200, 75);
 		info.setFocusable(false);
 		info.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		info.addActionListener(this);
@@ -190,15 +184,6 @@ public class MainMenu implements ActionListener {
 		if(e.getSource() == signUp) {
 			try {
 				MainMenu signUp = new MainMenu();
-			} catch (MalformedURLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			frame.dispose();
-		}
-		if(e.getSource() == settings) {
-			try {
-				MainMenu settings = new MainMenu();
 			} catch (MalformedURLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
