@@ -13,7 +13,10 @@ public class SignUp {
 	static JTextField usernameText;
 	static JTextField passwordText;
 	static HashMap <String, String> signUpInfo;
-
+	
+	// Times New Roman
+	Font roman = new Font("TimesRoman", Font.PLAIN, 20);
+	
 	public static void SignUp() {
 		JFrame signUpFrame = new JFrame();
 		signUpFrame.setSize(900, 800);
@@ -47,25 +50,25 @@ public class SignUp {
 		}
 
 		JLabel usernameDisplay = new JLabel("Username");
-		// usernameDisplay.setBounds(__, __, __, __);
-		// usernameDisplay.setFont(TimesRoman);
+		usernameDisplay.setBounds(100, 100, 200, 50);
+		usernameDisplay.setFont(roman);
 		Component loginFrame;
 		PopupMenu usernameInput;
 		loginFrame.add(usernameInput);
 
 		JLabel passwordDisplay = new JLabel("Password");
-		// passwordDisplay.setBounds(__, __, __, __);
-		// passwordDisplay.setFont(TimesRoman);
+		passwordDisplay.setBounds(100, 120, 200, 50);
+		passwordDisplay.setFont(roman);
 		PopupMenu passwordInput;
 		loginFrame.add(passwordInput);
 
-		usernameText.setBounds(260,60,180,45);
+		usernameText.setBounds(300, 100, 180, 45);
 		signUpFrame.add(usernameText);
 
-		passwordText.setBounds(260,130,180,45);
+		passwordText.setBounds(300, 120, 200, 50);
 		signUpFrame.add(passwordText);
 
-		signUp.setBounds(400,400,400,400);
+		signUp.setBounds(400, 400, 400, 400);
 		signUp.setBackground(Color.white);
 		signUp.addActionListener(new ActionListener() {
 
