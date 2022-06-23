@@ -71,7 +71,9 @@ public class Login implements ActionListener {
 			String password = "";
 			String seperateUserPass [];
 			while (reader.hasNextLine) {
+				// put a space between the username and password
 				seperateUserPass = currentLine.split(" ");
+				// username is the first word, then password is the second
 				username = seperateUserPass[0];
 				password = seperateUserPass[1];
 				loginInformation.put(username, password);
