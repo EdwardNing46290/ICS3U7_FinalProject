@@ -1,28 +1,23 @@
-import java.util.HashMap;
-
+import java.io.*;
 import javax.swing.*;
-
 import java.awt.Color;
+import java.util.HashMap;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.io.*;
 
-
-public class SignUp implements ActionListener{
+public class SignUp {
 
 	static String file = "login.txt";
-	public JTextField usernameText;
-	public JTextField passwordText;
-	public HashMap <String, String> signUpInfo;
+	static JTextField usernameText;
+	static JTextField passwordText;
+	static HashMap <String, String> signUpInfo;
 
-	void Signup() {
-		JFrame signupFrame = new JFrame();
-		Component signUpFrame;
+	public static void SignUp() {
+		JFrame signUpFrame = new JFrame();
 		signUpFrame.setSize(900, 800);
+
 		HashMap signUpInfo = new HashMap<> ();
 		usernameText = new JTextField("");
 		passwordText = new JTextField("");
@@ -34,10 +29,11 @@ public class SignUp implements ActionListener{
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String username = "";
 			String password = "";
-			String seperateUserPass[];
-			while (reader.hasNextLine) {
+			String[] seperateUserPass;
+			String currentLine;
+			while ((currentLine = reader.readLine()) != null) {
+
 				//put information into hashmap
-				String currentLine;
 				seperateUserPass = currentLine.split(" ");
 				username = seperateUserPass[0];
 				password = seperateUserPass[1];
@@ -47,7 +43,7 @@ public class SignUp implements ActionListener{
 
 
 		} catch (Exception IOX) {
-			JOptionPane.showMessageDialog(signupFrame, "Error, sign in could not register");
+			JOptionPane.showMessageDialog(signUpFrame, "Error, sign in could not register");
 		}
 
 		JLabel usernameDisplay = new JLabel("Username");
@@ -64,54 +60,44 @@ public class SignUp implements ActionListener{
 		loginFrame.add(passwordInput);
 
 		usernameText.setBounds(260,60,180,45);
-		signupFrame.add(usernameText);
+		signUpFrame.add(usernameText);
 
 		passwordText.setBounds(260,130,180,45);
-		signupFrame.add(passwordText);
+		signUpFrame.add(passwordText);
 
 		signUp.setBounds(400,400,400,400);
 		signUp.setBackground(Color.white);
 		signUp.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e)
-			{
-				if (e.getSource() == signUp) {
-					String username = usernameText.getText();
-					String password = passwordText.getText();
+			 public void actionPerformed(ActionEvent e)
+				 {
+					 if (e.getSource() == signUp) {
+						 String username = usernameText.getText();
+						 String password = passwordText.getText();
 
 
-					signUpInfo.put(username, password);
+						 signUpInfo.put(username, password);
 
-					//put the new account information into the text file
-					try {
-						BufferedWriter text = new BufferedWriter(new FileWriter(file,true));
-						text.write(username + " " + password);
+						 //put the new account information into the text file
+						 try {
+							 BufferedWriter text = new BufferedWriter(new FileWriter(file,true));
+							 text.write(username + " " + password);
 
-						text.close();
-						signupFrame.dispose();
+							 text.close();
+							 signUpFrame.dispose();
 
-					} catch (IOException iox) {
-						JOptionPane.showMessageDialog(signupFrame, "Error");
+						 } catch (IOException iox) {
+							 JOptionPane.showMessageDialog(signUpFrame, "Error");
 
-					}
-				}
-			}
+						 }
+					 }
+				 }
 
-		}
+			 }
+		);
 
-
-				);
-
-		signupFrame.add(signUp);
-		signupFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		signUpFrame.add(signUp);
+		signUpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
-*/
