@@ -1,0 +1,30 @@
+# Batch file raises errors
+
+    When running the batch file, the terminal will show several errors.
+
+    This is not preventable, and stops the game from running properly.
+
+    This game is only runnable in an IDE. Be sure to set the .jar files as libraries.
+
+    The creator of jfreechart unfortunately did not make their program work for batch files.
+
+## Reason for the errors
+
+    The program imports classes from the .jar files (in jfreechart package).
+
+    These classes are necessary to create graphs.
+
+
+# Typing test game
+
+    If the user types a word wrong, their words per minute (WPM) may be inaccurate.
+
+    For best results, type every word correctly.
+
+## Test results line graph
+
+    The chart is interactive, meaning clicking and dragging on the chart may change the zoom.
+
+    Click and drag cursor down to zoom in.
+
+    Click and drag cursor up to zoom out.
