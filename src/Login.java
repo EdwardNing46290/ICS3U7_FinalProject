@@ -40,7 +40,8 @@ public class Login {
 		loginFrame.setLayout(null);
 		loginFrame.setVisible(true);
 		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
+		// JLabel displays for the username and password
 		JLabel usernameDisplay = new JLabel("Username");
 		usernameDisplay.setBounds(100, 300, 200, 50);
 		usernameDisplay.setFont(new Font("Times New Roman", Font.BOLD, 30));
@@ -55,13 +56,14 @@ public class Login {
 		loginFrame.add(passwordDisplay);
 
 		JButton login = new JButton("Login");
-
+		// JButton bounds
 		login.setBounds(300, 500, 200, 75);
 		login.setFocusable(false);
 		login.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		login.setForeground(Color.WHITE);
 		login.setBackground(Color.BLACK);
-
+		
+		// JTextField bounds for username and password
 		JTextField usernameInput = new JTextField("");
 		JLabel usernameLabel = new JLabel();
 		usernameLabel.setText("Username");
@@ -76,22 +78,23 @@ public class Login {
 		passwordInput.setBounds(250, 400, 400, 50);
 		loginFrame.add(passwordInput);
 
-		HashMap loginInformation = new HashMap<>();
+		HashMap<Object, Object> loginInformation = new HashMap<>();
 		// ... check if the username exists and password is correct
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("login.txt"));
-			String username = "";
-			String password = "";
-			String seperateUserPass [];
-			String currentLine;
-			while ((currentLine = reader.readLine()) != null) {
-				// put a space between the username and password
-				seperateUserPass = currentLine.split(" ");
-				// username is the first word, then password is the second
-				username = seperateUserPass[0];
-				password = seperateUserPass[1];
-				loginInformation.put(username, password);
+			try (BufferedReader reader = new BufferedReader(new FileReader("login.txt"))) {
+				String username = "";
+				String password = "";
+				String seperateUserPass [];
+				String currentLine;
+				while ((currentLine = reader.readLine()) != null) {
+					// put a space between the username and password
+					seperateUserPass = currentLine.split(" ");
+					// username is the first word, then password is the second
+					username = seperateUserPass[0];
+					password = seperateUserPass[1];
+					loginInformation.put(username, password);
 
+				}
 			}
 			login.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -102,6 +105,7 @@ public class Login {
 						//check if the username exists 
 						if(loginInfo.containsKey(username)) {
 							try {
+								// prints out whether the login is sucessful or not
 								if((loginInfo.get(username).equals(password))) {
 									JOptionPane.showMessageDialog(loginFrame, "Login successful!");
 									loginFrame.dispose();
@@ -118,7 +122,8 @@ public class Login {
 				}
 			});
 			// some login code from Javatpoint
-
+			
+			// allows user to return to the main menu
 			JButton home = new JButton("Main Menu");
 
 			home.setBounds(660, 20, 200, 75);
@@ -140,7 +145,7 @@ public class Login {
 			loginFrame.add(home);
 			loginFrame.add(login);
 			loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+			// prints out an error if there is an IOX exception
 		} catch (Exception IOX) {
 			JOptionPane.showMessageDialog(loginFrame, "Error, something is wrong with the login.");
 		}
