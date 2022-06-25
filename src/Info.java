@@ -79,6 +79,11 @@ public class Info {
 		home.setFocusable(false);
 		home.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		
+		exit.setBounds(660, 650, 200, 75);
+		exit.setFocusable(false);
+		exit.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+		exit.setBackground(Color.RED);
+		
 		infoFrame.add(infoText);
 		infoFrame.add(signUpInfo);
 		infoFrame.add(loginInfo);
@@ -88,6 +93,7 @@ public class Info {
 		infoFrame.add(wordsInfo);
 		infoFrame.add(wordsInfo2);
 		infoFrame.add(home);
+		infoFrame.add(exit);
 		
 		home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,6 +104,12 @@ public class Info {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			}
+		});
+		
+		exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				infoFrame.dispose();
 			}
 		});
 		
