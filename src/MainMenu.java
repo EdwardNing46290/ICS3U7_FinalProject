@@ -23,6 +23,7 @@ public class MainMenu implements ActionListener {
 	static JButton info = new JButton("Info"); // add an image of an i
 	static JButton login = new JButton("Login");
 	static JButton signUp = new JButton("Sign Up");
+	static JButton exit = new JButton("EXIT");
 
 	public MainMenu () throws MalformedURLException{
 
@@ -35,8 +36,8 @@ public class MainMenu implements ActionListener {
 		}
 
 		try {
-			Image gear = ImageIO.read(getClass().getResource("resources/gear.jpg"));
-			settings.setIcon(new ImageIcon(gear));
+			Icon gear = new ImageIcon("resources/gear.jpg");
+			info.setIcon(gear);
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
@@ -59,11 +60,7 @@ public class MainMenu implements ActionListener {
 
 		JLabel title = new JLabel();
 		JLabel light_title = new JLabel();
-
-		// background/font colours
-		Color yellow = new Color(255,255,0);
-		Color grey = new Color(1,1,1);
-		Color orange = new Color(255,215,0);
+		
 		ActionListener startGame = e -> {
 			try {
 				frame.dispose();
@@ -74,6 +71,38 @@ public class MainMenu implements ActionListener {
 		};
 		typingTest.addActionListener(startGame);
 
+		ActionListener information = e -> {
+			try {
+				frame.dispose();
+				Info.Info();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		};
+		info.addActionListener(information);
+
+		ActionListener signIn = e -> {
+			try {
+				frame.dispose();
+				SignUp.SignUp();
+			} catch (IOException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+			}
+		};
+		signUp.addActionListener(signIn);
+		
+		ActionListener logIn = e -> {
+			try {
+				frame.dispose();
+				Login.Login();
+			} catch (IOException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+			}
+		};
+		login.addActionListener(logIn);
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setVisible(true);
@@ -81,14 +110,16 @@ public class MainMenu implements ActionListener {
 		frame.setResizable(false);
 
 		// images
-		ImageIcon background = new ImageIcon("background.jpg");
-		frame.setIconImage(background.getImage());
+		ImageIcon luffy = new ImageIcon("luffy.png");
+		frame.setIconImage(luffy.getImage());
 
-		Icon image = new ImageIcon("typing.image");
+		Icon image = new ImageIcon("luffy.png");
 
 		JLabel imageLabel = new JLabel(image);
-		frame.getContentPane().setBackground(Color.black);
-
+		
+		// frame.getContentPane().setBackground("luffy.png");
+		frame.add(new JLabel(new ImageIcon("luffy.png")));
+		
 		frame.getContentPane().add(imageLabel);
 
 		frame.pack();
@@ -101,97 +132,70 @@ public class MainMenu implements ActionListener {
 		login.setFocusable(false);
 		login.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		login.addActionListener(this);
-		login.setBackground(grey);
+		login.setForeground(Color.WHITE);
+		login.setBackground(Color.BLACK);
 
 		signUp.setBounds(250, 20, 200, 75);
 		signUp.setFocusable(false);
 		signUp.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		signUp.addActionListener(this);
-		signUp.setBackground(grey);
+		signUp.setForeground(Color.WHITE);
+		signUp.setBackground(Color.BLACK);
 
 		info.setBounds(660, 20, 200, 75);
 		info.setFocusable(false);
 		info.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		info.addActionListener(this);
-		info.setBackground(grey);
 
-		scores.setBounds(20, 660, 200, 75);
+		scores.setBounds(660, 120, 200, 75);
 		scores.setFocusable(false);
 		scores.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		scores.addActionListener(this);
-		scores.setBackground(orange);
-
+		scores.setBackground(Color.ORANGE);
+		
+		exit.setBounds(20, 660, 200, 75);
+		exit.setFocusable(false);
+		exit.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+		exit.addActionListener(this);
+		exit.setBackground(Color.RED);
+		
 		typingTest.setBounds(660, 660, 200, 75);
 		typingTest.setFocusable(false);
 		typingTest.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		typingTest.addActionListener(this);
-		typingTest.setBackground(yellow);
+		typingTest.setBackground(Color.YELLOW);
 
 
 		title.setText("TypingTest Menu");
 		title.setFont(new Font("Times New Roman", Font.BOLD, 80));
-		title.setBounds(220,-100,800,1000);
-		title.setForeground(yellow);
+		title.setBounds(120,-100,800,1000);
+		title.setForeground(Color.BLUE);
 
 		frame.add(typingTest);
 		frame.add(login);
 		frame.add(signUp);
 		frame.add(info);
 		frame.add(scores);
+		frame.add(exit);
 		frame.add(title);
 		frame.add(light_title);
-
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == typingTest) {
-			try {
-				MainMenu menuPage = new MainMenu();
-			} catch (MalformedURLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			frame.dispose();
-		}
-		if(e.getSource() == info) {
-			try {
-				MainMenu info = new MainMenu();
-			} catch (MalformedURLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			frame.dispose();
-		}
-		if(e.getSource() == scores) {
-			try {
-				MainMenu scores = new MainMenu();
-			} catch (MalformedURLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			frame.dispose();
-		}
-		if(e.getSource() == login) {
-			try {
-				MainMenu login = new MainMenu();
-			} catch (MalformedURLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			frame.dispose();
-		}
-		if(e.getSource() == signUp) {
-			try {
-				MainMenu signUp = new MainMenu();
-			} catch (MalformedURLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			frame.dispose();
-		}
 	}
 	public static void main(String[] args) throws MalformedURLException {
 		MainMenu menuPage = new MainMenu();
+	}
+
+	public static void MainMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void addActionListener(ActionListener home) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
