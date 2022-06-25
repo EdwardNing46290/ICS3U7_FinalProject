@@ -76,9 +76,6 @@ public class Login {
 		passwordInput.setBounds(250, 400, 400, 50);
 		loginFrame.add(passwordInput);
 
-		String usernameValue = usernameInput.getText();
-		String passwordValue = passwordInput.getText();
-
 		HashMap loginInformation = new HashMap<>();
 		// ... check if the username exists and password is correct
 		try {
