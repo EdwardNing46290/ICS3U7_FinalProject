@@ -31,9 +31,9 @@ public class SignUp {
 		signUpFrame.setTitle("Sign Up Menu");
 		signUpFrame.setResizable(false);
 
-		HashMap signUpInfo = new HashMap<> ();
-		usernameText = new JTextField("Type Here");
-		passwordText = new JTextField("Type Here");
+		HashMap<Object, Object> signUpInfo = new HashMap<> ();
+		usernameText = new JTextField("");
+		passwordText = new JTextField("");
 		JButton signUp = new JButton("Sign Up");
 
 		//store all the info from the text file into the hashmap
@@ -94,12 +94,11 @@ public class SignUp {
 
 
 					signUpInfo.put(username, password);
-
 					//put the new account information into the text file
 					try {
 						BufferedWriter text = new BufferedWriter(new FileWriter(file,true));
 						text.write(username + " " + password);
-
+						JOptionPane.showMessageDialog(signUpFrame, "Sign Up Successful");
 						signUp.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								try {
@@ -122,7 +121,25 @@ public class SignUp {
 
 		}
 				);
-
+		JButton home = new JButton("Main Menu");
+		
+		home.setBounds(660, 20, 200, 75);
+		home.setFocusable(false);
+		home.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+		
+		home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					signUpFrame.dispose();
+					new MainMenu();
+				} catch (MalformedURLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		signUpFrame.add(home);
 		signUpFrame.add(signUp);
 		signUpFrame.add(usernameText);
 		signUpFrame.add(passwordText);
