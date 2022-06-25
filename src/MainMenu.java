@@ -146,12 +146,14 @@ public class MainMenu implements ActionListener {
 		info.setFocusable(false);
 		info.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		info.addActionListener(this);
-
+		
+		/**
 		scores.setBounds(660, 120, 200, 75);
 		scores.setFocusable(false);
 		scores.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		scores.addActionListener(this);
 		scores.setBackground(Color.ORANGE);
+		*/ // Scores and averages are shown after the Typing Test is completed
 		
 		exit.setBounds(20, 660, 200, 75);
 		exit.setFocusable(false);
