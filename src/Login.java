@@ -119,7 +119,7 @@ public class Login {
 						}
 					}
 				}
-			}
+			});
 			// some login code from Javatpoint
 
 			JButton home = new JButton("Main Menu");
