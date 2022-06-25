@@ -1,74 +1,106 @@
 // just print out info similiar to MonkeyType
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Color;
 
 public class Info {
-	JFrame infoFrame = new JFrame(); 
-	
-	JLabel infoText = new JLabel();
-	JLabel info = new JLabel();
-	JLabel signUpInfo = new JLabel();
-	JLabel loginInfo = new JLabel();
-	JLabel settingsInfo = new JLabel();
-	JLabel scoreInfo = new JLabel();
-	JLabel contactInfo = new JLabel();
-	JLabel wordsInfo = new JLabel();
+	public static void Info() throws MalformedURLException {
+		JFrame infoFrame = new JFrame(); 
+		
+		infoFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		infoFrame.setLayout(null);
+		infoFrame.setVisible(true);
+		infoFrame.setTitle("Info Menu");
+		infoFrame.setResizable(false);
+		
+		JLabel infoText = new JLabel();
+		JLabel signUpInfo = new JLabel();
+		JLabel loginInfo = new JLabel();
+		JLabel loginInfo2 = new JLabel();
+		JLabel scoreInfo = new JLabel();
+		JLabel scoreInfo2 = new JLabel();
+		JLabel wordsInfo = new JLabel();
+		JLabel wordsInfo2 = new JLabel();
+		JButton exit = new JButton("EXIT");
+		JButton home = new JButton("Main Menu");
 
-
-	public Info () throws MalformedURLException {
 		infoFrame.setSize(900,800);
 		infoFrame.setBackground(Color.BLACK);
 		infoFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		infoText.setText("Created by Vincent Liu and Edward Ning");
-		infoText.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		infoText.setBounds(130, 100, 800, 1000);
-		infoText.setForeground(Color.WHITE);
-		
+		infoText.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		infoText.setBounds(20, -450, 800, 1000);
+		infoText.setForeground(Color.BLACK);
+
 		signUpInfo.setText("To sign up, enter a username and password; no email required");
-		signUpInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		signUpInfo.setBounds(130, 200, 800, 1000);
-		signUpInfo.setForeground(Color.WHITE);
+		signUpInfo.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		signUpInfo.setBounds(20, -350, 800, 1000);
+		signUpInfo.setForeground(Color.BLACK);
+
+		loginInfo.setText("To log in, enter the username and password you used to sign");
+		loginInfo.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		loginInfo.setBounds(20, -250, 800, 1000);
+		loginInfo.setForeground(Color.BLACK);
 		
-		loginInfo.setText("To log in, enter the username and password you used to sign up previously");
-		loginInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		loginInfo.setBounds(130, 300, 800, 1000);
-		loginInfo.setForeground(Color.WHITE);
+		loginInfo2.setText("up previously");
+		loginInfo2.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		loginInfo2.setBounds(20, -200, 800, 1000);
+		loginInfo2.setForeground(Color.BLACK);
 		
-		settingsInfo.setText("");
-		settingsInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		settingsInfo.setBounds(130, 400, 800, 1000);
-		settingsInfo.setForeground(Color.WHITE);
+		scoreInfo.setText("Stats shown: WPM (words per minute), percentage of correct");
+		scoreInfo.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		scoreInfo.setBounds(20, -100, 800, 1000);
+		scoreInfo.setForeground(Color.BLACK);
+
+		scoreInfo2.setText("words, and total words");
+		scoreInfo2.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		scoreInfo2.setBounds(20, -50, 800, 1000);
+		scoreInfo2.setForeground(Color.BLACK);
 		
-		scoreInfo.setText("Stats shown: WPM (words per minute), percentage of correct words, and total words");
-		scoreInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		scoreInfo.setBounds(130, 500, 800, 1000);
-		scoreInfo.setForeground(Color.WHITE);
+		wordsInfo.setText("We used 300 english words for easy mode, 500 for medium");
+		wordsInfo.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		wordsInfo.setBounds(20, 50, 800, 1000);
+		wordsInfo.setForeground(Color.BLACK);
+
+		wordsInfo2.setText("for medium, and 1000 for hard");
+		wordsInfo2.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		wordsInfo2.setBounds(20, 100, 800, 1000);
+		wordsInfo2.setForeground(Color.BLACK);
 		
-		wordsInfo.setText("We use the 300 most common english words for easy mode, 500 for medium, and 1000 for hard");
-		wordsInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		wordsInfo.setBounds(130, 600, 800, 1000);
-		wordsInfo.setForeground(Color.WHITE);
+		home.setBounds(660, 20, 200, 75);
+		home.setFocusable(false);
+		home.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		
 		infoFrame.add(infoText);
 		infoFrame.add(signUpInfo);
 		infoFrame.add(loginInfo);
-		infoFrame.add(settingsInfo);
+		infoFrame.add(loginInfo2);
 		infoFrame.add(scoreInfo);
+		infoFrame.add(scoreInfo2);
 		infoFrame.add(wordsInfo);
+		infoFrame.add(wordsInfo2);
+		infoFrame.add(home);
+		
+		home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					infoFrame.dispose();
+					new MainMenu();
+				} catch (MalformedURLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		infoFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
